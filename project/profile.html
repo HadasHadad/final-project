@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="he">
-    <link rel="stylesheet" href="profile.css" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/project/css/profile.css" />
+    <link rel="stylesheet" href="/project/css/style.css">
 <head>
   <meta charset="UTF-8">
   <title>פרופיל שחקן</title>
   <style>
     
     body {
-    
       font-family: Arial;
       direction: rtl;
       padding: 20px;
@@ -26,28 +25,19 @@
     }
   </style>
 </head>
-
-
 <body class="fashion">
- 
-<header class="header">
-  <h1 class="title">שם המשחק</h1>
-<nav id="main-nav"> </nav>
-</header>
 
-<script src="nav.js"></script>
-  <h1> פרופיל שחקן</h1>
+  <h1>בניית פרופיל שחקן</h1>
 
   <form id="playerForm">
-    <label>שם משתמש:</label>
+    <label>שם במשחק:</label>
     <p  id="inGameName" >
 
-   
+    <label>שם המשחק:</label>
+    <input type="text" id="game" required>
 
     <label>דרגה :</label>
-    
-
-
+    <input type="text" id="rank">
 
     <label>תפקיד:</label>
     <input type="text" id="role">
@@ -71,15 +61,13 @@
   </form>
 
   <div id="profile" class="profile-box" style="display:none;"></div>
-  <script src="data.js"></script>
+  <script src="/project/js/data.js"></script>
   <script>
     document.getElementById("playerForm").addEventListener("submit", function(event) {
       event.preventDefault();
 
-
-      const name = document.getElementById("inGameName").value;
-      name.innerHTML=players[1].name;
-
+      const name = document.getElementById("inGameName");
+      name.innerHTML = players[1].name;
       const game = document.getElementById("game").value;
       const rank = document.getElementById("rank").value;
       const role = document.getElementById("role").value;
@@ -88,20 +76,18 @@
       const weaknesses = document.getElementById("weaknesses").value;
       const goals = document.getElementById("goals").value;
       const particular = document.getElementById("particular").value;
+
+      const profileHTML = `
+        <h2>${name} - ${game}</h2>
+        <p><strong>דרגה:</strong> ${rank}</p>
+        <p><strong>תפקיד:</strong> ${role}</p>
+        <p><strong>מיין:</strong> ${mains}</p>
+        <p><strong>חוזקות:</strong> ${strengths}</p>
+        <p><strong>חולשות:</strong> ${weaknesses}</p>
+        <p><strong>מטרות:</strong> ${goals}</p>
+      `;
+
       const profileDiv = document.getElementById("profile");
-      particular.innerHTML=
-
-      // // const profileHTML = `
-      // //   <h2>${name} - ${game}</h2>
-      // //   <p><strong>דרגה:</strong> ${rank}</p>
-      // //   <p><strong>תפקיד:</strong> ${role}</p>
-      // //   <p><strong>מיין:</strong> ${mains}</p>
-      // //   <p><strong>חוזקות:</strong> ${strengths}</p>
-      // //   <p><strong>חולשות:</strong> ${weaknesses}</p>
-      // //   <p><strong>מטרות:</strong> ${goals}</p>
-      // `;
-
-      
       profileDiv.innerHTML = profileHTML;
       profileDiv.style.display = "block";
     });

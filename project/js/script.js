@@ -38,7 +38,7 @@ function sendMessage() {
       currentPlayer.reputation--;
       renderPlayers();
     } else {
-      alert("התגובה לא פוגענית לפי הבדיקה.");
+      alert(" התגובה לא פוגענית לפי הבדיקה, תוכל לדווח בכל זאת.");
             window.location.href = 'report.html';
     }
   });
