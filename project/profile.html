@@ -26,36 +26,40 @@
   </style>
 </head>
 <body class="fashion">
+ 
+<header class="header">
+  <h1 class="title">שם המשחק</h1>
+<nav id="main-nav"> </nav>
+</header>
 
+<script src="nav.js"></script>
   <h1>בניית פרופיל שחקן</h1>
 
   <form id="playerForm">
-    <label>שם במשחק:</label>
-    <p  id="inGameName" >
-
-    <label>שם המשחק:</label>
-    <input type="text" id="game" required>
-
-    <label>דרגה :</label>
-    <input type="text" id="rank">
+    <label>שם שחקן:</label>
+    
+    <p type="text" id="inGameName" required>
 
     <label>תפקיד:</label>
-    <input type="text" id="role">
+    <p type="text" id="role">
 
-    <label>דמויות / נשקים מועדפים:</label>
-    <input type="text" id="mains">
+    <label>דמויות:</label>
+    <p type="text" id="mains">
 
-    <label>חוזקות:</label>
-    <textarea id="strengths"></textarea>
+      <label>נתוני משחק:</label>
+    <p type="text" id="code">
+      
 
-    <label>חולשות:</label>
-    <textarea id="weaknesses"></textarea>
+      <label>קוד:</label>
+    <p type="text" id="code">
 
-    <label>מטרות:</label>
-    <textarea id="goals"></textarea>
-    
+    <label>נשקים מועדפים:</label>
+    <p type="text" id="mains">
+
     <label>מוניטין</label>
     <textarea id="particular"></textarea>
+
+
 
     <button type="submit">צור פרופיל</button>
   </form>
@@ -66,8 +70,10 @@
     document.getElementById("playerForm").addEventListener("submit", function(event) {
       event.preventDefault();
 
-      const name = document.getElementById("inGameName");
-      name.innerHTML = players[1].name;
+
+      const name = document.getElementById("inGameName").value;
+      name.innerHTML=players[1].name;
+
       const game = document.getElementById("game").value;
       const rank = document.getElementById("rank").value;
       const role = document.getElementById("role").value;
@@ -76,18 +82,20 @@
       const weaknesses = document.getElementById("weaknesses").value;
       const goals = document.getElementById("goals").value;
       const particular = document.getElementById("particular").value;
-
-      const profileHTML = `
-        <h2>${name} - ${game}</h2>
-        <p><strong>דרגה:</strong> ${rank}</p>
-        <p><strong>תפקיד:</strong> ${role}</p>
-        <p><strong>מיין:</strong> ${mains}</p>
-        <p><strong>חוזקות:</strong> ${strengths}</p>
-        <p><strong>חולשות:</strong> ${weaknesses}</p>
-        <p><strong>מטרות:</strong> ${goals}</p>
-      `;
-
       const profileDiv = document.getElementById("profile");
+      particular.innerHTML=
+
+      // // const profileHTML = `
+      // //   <h2>${name} - ${game}</h2>
+      // //   <p><strong>דרגה:</strong> ${rank}</p>
+      // //   <p><strong>תפקיד:</strong> ${role}</p>
+      // //   <p><strong>מיין:</strong> ${mains}</p>
+      // //   <p><strong>חוזקות:</strong> ${strengths}</p>
+      // //   <p><strong>חולשות:</strong> ${weaknesses}</p>
+      // //   <p><strong>מטרות:</strong> ${goals}</p>
+      // `;
+
+      
       profileDiv.innerHTML = profileHTML;
       profileDiv.style.display = "block";
     });
