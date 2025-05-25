@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #a6ecff; 
+    background-color: #89cef0;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -80,18 +80,157 @@ pre {
 
 #playbutton, #info {
     display: inline-block;
-    background-color: #03a9f4; 
-    color: white;
     padding: 10px 20px;
+    /* background-color: #3498db; */
+    background: #2e45b4;;
+    color: white;
     text-decoration: none;
     border-radius: 5px;
-    margin: 10px;
-    transition: background-color 0.3s ease;
+    margin-top: 15px;
+    font-size: x-large;
 }
 
 #playbutton:hover, #info:hover {
     background-color: #0288d1;
 }
-/* #image1 , #image2 , #image3{
-    height: 474;
-} */
+
+
+/* עיצוב Navbar מותאם אישית */
+.custom-navbar {
+  background-color: #3498db; /* גוון כחול יפה */
+  padding: 15px 0;
+  color: white;
+  width: 1517px;
+}
+
+.custom-navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+      position: relative;
+    left: 13px;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: 414px;
+    font-size: x-large;
+
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #f0f0f0;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
+.navbar-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  background-color: #2980b9; /* גוון כחול כהה יותר לכפתורים */
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #1c6aa5;
+}
+
+.button-outline {
+  background-color: transparent;
+  border: 1px solid white;
+  font-size: larger;
+}
+
+#sighup{
+ background-color: transparent;
+  border: 1px solid white;
+  font-size: larger;
+}
+.button-outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* המשך העיצובים הקודמים שלך */
+.container.mt-4 {
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+#about {
+  margin-top: 20px;
+  color: #333;
+  text-align: right; /* תיקון יישור לימין */
+}
+
+#playbutton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 15px;
+}
+
+#playbutton:hover {
+  background-color: #218838;
+}
+
+#info {
+  display: inline-block;
+  margin-right: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+#info:hover {
+  text-decoration: underline;
+}
+
+#pre2 {
+  white-space: pre-wrap; /* כדי שהטקסט הארוך ישבור שורה */
+  margin-top: 20px;
+  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  direction: rtl; /* יישור טקסט מימין לשמאל */
+  text-align: right; /* יישור פנימי של הטקסט לימין */
+}
+
+/* עיצוב קל לקרוסלה כדי ליצור מרווח */
+#carouselExampleIndicators {
+  margin-top: 30px;
+}

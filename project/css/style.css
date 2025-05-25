@@ -9,18 +9,22 @@ body {
     background-color: #f0f0f0;
     padding: 20px;
   }
-  .container {
+ .container {
     max-width: 700px;
     margin: auto;
     background: white;
     padding: 20px;
     border-radius: 8px;
   }
+
   #chat {
     margin-top: 20px;
     width: 285px;
     height: 93px;
   }
+
+
+ 
   #messages {
     height: 200px;
     overflow-y: auto;
@@ -48,6 +52,21 @@ body {
     padding-right: 42px;
     color: rgb(122, 213, 249);
   }
+
+
+  .player {
+    margin-bottom: 10px;
+  }
+  .low-reputation {
+    color: red;
+  }
+  
+a{
+  color: #efe037;
+}
+  
+
+
 
 .nav{
   padding-left: 42px;
@@ -91,9 +110,7 @@ left:8px;
   .low-reputation {
     color: red;
   }
-a{
-  color: #efe037;
-}
+
 .GameBox{
     width: 1052px;
     height: 500px;
@@ -102,5 +119,27 @@ a{
     margin-top: -88px;
     background-color: gray;
 }
+.GameBox {
+  width: 1052px;
+  background-color: gray;
+  border: black 3px solid;
+  margin-left: 300px;
+
+}
+
+.healthbar-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 0 20px; /* add spacing from canvas border if needed */
+}
+
+.healthbar {
+  width: 500px;
+  height: 30px;
+  border: black 2px solid;
+  background-color: green;
+}
+
 
   

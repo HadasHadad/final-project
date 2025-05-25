@@ -1,0 +1,66 @@
+body{
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* #playbutton, #info {
+    display: inline-block;
+    background-color: #03a9f4; 
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+} */
+.footercopyright{
+    justify-content: space-around;
+}
+/* .home-pagebutton{
+    display: inline-block;
+    background-color: #03a9f4; 
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.aboutbutton{
+    display: inline-block;
+    background-color: #03a9f4; 
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.helpbutton{
+    display: inline-block;
+    background-color: #03a9f4; 
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.signbutton{
+        display: inline-block;
+    background-color: #03a9f4; 
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+} */
