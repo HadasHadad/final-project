@@ -18,7 +18,7 @@
   height: 30px;
   border: black 2px solid;
   background-color: green;
-
+}
 body {
     font-family: Arial, sans-serif;
     direction: rtl;
@@ -78,7 +78,7 @@ body {
   .low-reputation {
     color: red;
   }
-  
+
 a{
   color: #efe037;
 }
