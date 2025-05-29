@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/project/css/style.css" />
-    <title>Document</title>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="./">
+  <link rel="stylesheet" href="./css/Game+Chat.css" />
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Document</title>
+
 </head>
+
 <body>
-    <header class="header">
-        <h1 class="title">שם המשחק</h1>
-      <nav id="main-nav"> </nav>
-    </header>
-     <!-- צ'אט -->
-     <div id="chat">
-        <div id="messages" ></div>
-        <input type="text" id="chatInput" placeholder="הקלד הודעה..." />
-        <button id="sendBtn">שלח</button>
-      </div>
-      <!-- health bars-->
-<div class="GameBox">
-  <div class="healthbar-container">
-    <div class="healthbar" id="p1Health"></div>
-    <div class="healthbar" id="p2Health"></div>
+  <header class="header">
+    <h1 class="title">שם המשחק</h1>
+    <nav id="main-nav"> </nav>
+  </header>
+  <!-- צ'אט -->
+  <div id="chat">
+    <div id="messages"></div>
+    <input type="text" id="chatInput" placeholder="הקלד הודעה..." />
+    <button id="sendBtn">שלח</button>
   </div>
-  <canvas id="myCanvas" width="1052" height="500"></canvas>
-</div>
+  <!-- health bars-->
+  <div class="GameBox">
+    <div class="healthbar-container">
+      <div class="healthbar" id="p1Health"></div>
+      <div class="healthbar" id="p2Health"></div>
+    </div>
+    <canvas id="myCanvas" width="1052" height="500"></canvas>
+  </div>
 
 
 
-      <script src="/project/js/data.js"></script>
-      <script src="/project/js/gptMock.js"></script>
-      <script src="/project/js/script.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/gptMock.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/game.js"></script>
 </body>
+
 </html>

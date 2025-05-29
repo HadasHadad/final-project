@@ -17,26 +17,10 @@ body {
     border-radius: 8px;
   }
 
-  #chat {
-    margin-top: 20px;
-    width: 285px;
-    height: 93px;
-  }
 
 
  
-  #messages {
-    height: 200px;
-    overflow-y: auto;
-    background: #eee;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  .message {
-    padding: 5px;
-    border-bottom: 1px solid #ccc;
 
-  }
 
   .header{
     display: flex
@@ -87,7 +71,6 @@ a{
    font-size: 22px;
    font-family: unset;
    left: 8px;
-
 
    
 }
@@ -141,5 +124,8 @@ left:8px;
   background-color: green;
 }
 
-
-  
+.buttondiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

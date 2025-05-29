@@ -1,0 +1,49 @@
+.GameBox{
+    width: 1052px;
+    height: 500px;
+    margin-right: 213px;
+    border: 3px solid black;
+    margin-top: -88px;
+    background-color: gray;
+    height: 543px;
+}
+.GameBox {
+  width: 1052px;
+  background-color: gray;
+  border: black 3px solid;
+  margin-left: 300px;
+
+}
+
+.healthbar-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 0 20px; /* add spacing from canvas border if needed */
+}
+
+.healthbar {
+  width: 500px;
+  height: 30px;
+  border: black 2px solid;
+  background-color: green;
+}
+
+  #messages {
+    height: 200px;
+    width: 226;
+    background: #eee;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .message {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+
+  }
+
+  #chat {
+    margin-top: 20px;
+    width: 285px;
+    height: 93px;
+  }

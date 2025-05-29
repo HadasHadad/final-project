@@ -16,7 +16,7 @@ let p2y = 400;
 
 let bulletSize = 20;
 let bulletHeight = 10;
-let bulletSpeed = 50;
+let bulletSpeed = 20;
 
 // Bullets
 let p1BulletX = null;
@@ -24,53 +24,62 @@ let p1BulletY = null;
 let p2BulletX = null;
 let p2BulletY = null;
 
+// Huge bullet flag for Player 1
+let p1HugeBullet = false;
+
 // Health
 let p1Health = 100;
 let p2Health = 100;
 
-
 let gameOver = false;
 let winner = "";
-
 
 document.addEventListener("keydown", move);
 
 function move(event) {
-  if (gameOver) return; // Prevent any movement or shooting after game is over
+  if (gameOver) return;
 
   switch (event.key.toLowerCase()) {
     // player 1
     case "w":
-      p1y -= speed;
+      p1y = Math.max(0, p1y - speed);
       break;
     case "s":
-      p1y += speed;
+      p1y = Math.min(canvas.height - bodyHeight, p1y + speed);
       break;
     case "a":
-      p1x -= speed;
+      p1x = Math.max(0, p1x - speed);
       break;
     case "d":
-      p1x += speed;
+      p1x = Math.min(canvas.width - bodyWidth, p1x + speed);
       break;
     case "g":
       if (p1BulletX === null) {
         p1BulletX = p1x + bodyWidth;
         p1BulletY = p1y + bodyHeight / 2 - bulletHeight / 2;
+        p1HugeBullet = false;
+      }
+      break;
+    case "h":
+      if (p1BulletX === null) {
+        p1BulletX = p1x + bodyWidth;
+        p1BulletY = p1y + bodyHeight / 2 - bulletHeight / 2;
+        p1HugeBullet = true;
       }
       break;
 
     // player 2
     case "arrowup":
-      p2y -= speed;
+      p2y = Math.max(0, p2y - speed);
       break;
     case "arrowdown":
-      p2y += speed;
+      p2y = Math.min(canvas.height - bodyHeight, p2y + speed);
       break;
     case "arrowleft":
-      p2x -= speed;
+      p2x = Math.max(0, p2x - speed);
       break;
     case "arrowright":
-      p2x += speed;
+      p2x = Math.min(canvas.width - bodyWidth, p2x + speed);
       break;
     case "l":
       if (p2BulletX === null) {
@@ -101,7 +110,9 @@ function draw() {
   // Bullets
   if (p1BulletX !== null) {
     ctx.fillStyle = "green";
-    ctx.fillRect(p1BulletX, p1BulletY, bulletSize, bulletHeight);
+    // Changed here: huge bullet is 5 times wider than normal bullet
+    const size = p1HugeBullet ? bulletSize * 5 : bulletSize;
+    ctx.fillRect(p1BulletX, p1BulletY, size, bulletHeight);
   }
   if (p2BulletX !== null) {
     ctx.fillStyle = "blue";
@@ -118,16 +129,19 @@ function draw() {
 
 function updateBullets() {
   if (p1BulletX !== null) {
+    // Changed here: collision width matches 5 times bullet size when huge
+    const p1CurrentBulletSize = p1HugeBullet ? bulletSize * 5 : bulletSize;
     p1BulletX += bulletSpeed;
 
     if (
-      p1BulletX + bulletSize >= p2x &&
+      p1BulletX + p1CurrentBulletSize >= p2x &&
       p1BulletX <= p2x + bodyWidth &&
       p1BulletY >= p2y &&
       p1BulletY <= p2y + bodyHeight
     ) {
       p2Health = Math.max(0, p2Health - 10);
       p1BulletX = null;
+      p1HugeBullet = false;
 
       if (p2Health === 0 && !gameOver) {
         gameOver = true;
@@ -135,6 +149,7 @@ function updateBullets() {
       }
     } else if (p1BulletX > canvas.width) {
       p1BulletX = null;
+      p1HugeBullet = false;
     }
   }
 
@@ -160,9 +175,6 @@ function updateBullets() {
   }
 }
 
-
-
-
 function showWinner() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.7)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -173,14 +185,6 @@ function showWinner() {
   ctx.fillText(`${winner} has won!`, canvas.width / 2, canvas.height / 2);
 }
 
-
-
-
-
-
-
-
-
 function gameLoop() {
   if (!gameOver) {
     updateBullets();
@@ -190,6 +194,5 @@ function gameLoop() {
     showWinner(); // display the win message
   }
 }
-
 
 gameLoop();

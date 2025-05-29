@@ -3,40 +3,14 @@ background-color: rgb(67, 140, 196);
 color: beige;
 
 }
+.footercopyright{
+  color: black;
 
-body {
-    font-family: Arial;
-    direction: rtl;
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-  }
-  input, select, textarea {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 8px;
-  }
-  .profile-box {
-    border: 1px solid #ccc;
-    padding: 15px;
-    margin-top: 20px;
-    background-color:blue;
-  }
+}
+.footer{
+  color: #000;
+}
 
-
-
-
-
-.header{
-    display: flex
-    ;
-        justify-content: space-between;
-        align-items: first baseline;
-        background-color: rgb(72, 77, 146);
-        height: 203px
-        
-        
-  }
   .title{
     position: relative;
     top: 6px;
@@ -51,7 +25,32 @@ body {
   color: rgb(42, 145, 150);
 }
 
-
+ body {
+      font-family: Arial;
+      direction: rtl;
+      padding: 20px;
+    }
+    input, select, textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+    }
+    .profile-box {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-top: 20px;
+      background-color:blue;
+    }
+    
+  .header{
+    display: flex;
+        justify-content: space-between;
+        align-items: first baseline;
+        background-color: rgb(40, 46, 128);
+        height: 203px;
+  
+        
+  }
 
 
 

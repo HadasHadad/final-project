@@ -10,7 +10,6 @@ let cnfrmbtn = document.getElementById("cnfrmbtn");
 
 
 
-
 let AddToPlayerBaseBtn = document.getElementById("AddToPlayerBase");
 AddToPlayerBaseBtn.disabled = true;
 
