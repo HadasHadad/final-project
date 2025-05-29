@@ -1,0 +1,42 @@
+.header{
+    display: flex
+    ;
+        justify-content: space-between;
+        align-items: first baseline;
+        background-color: rgb(72, 77, 146);
+        height: 203px;
+  }
+  .title{
+    position: relative;
+    top: 6px;
+    padding-right: 42px;
+    color: rgb(122, 213, 249);
+  }
+
+.nav{
+  padding-left: 42px;
+    position: relative;
+    top: 6px;
+  color: rgb(42, 145, 150);
+}
+a{
+    color: #efe037;
+  }
+    
+.h{
+    position: relative;
+    right: 450px;
+}  
+.l{
+    position: relative;
+    right: 600px;
+}
+.k{
+    position: relative;
+
+right: 110px;
+}
+.g{
+    position: relative;
+    right: 120px;
+}
