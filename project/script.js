@@ -1,6 +1,8 @@
 const messagesDiv = document.getElementById("messages");
 const chatInput = document.getElementById("chatInput");
 const sendBtn = document.getElementById("sendBtn");
+const chatInput2 = document.getElementById("chatInput2");
+const sendBtn2 = document.getElementById("sendBtn2");
 const playersDiv = document.getElementById("players");
 
 let currentPlayer = players[0]; // ברירת מחדל
@@ -18,14 +20,14 @@ function renderPlayers() {
   });
 }
 
-function sendMessage() {
+function sendMessage(massage, player) {
   const text = chatInput.value.trim();
   if (!text) return;
 
   const messageDiv = document.createElement("div");
   messageDiv.className = "message";
   messageDiv.innerHTML = `
-    <strong>${currentPlayer.name}:</strong> ${text}
+    <strong>${player.name}:</strong> ${massage}
     <button class="report-btn">דווח</button>
   `;
 
@@ -46,6 +48,7 @@ function sendMessage() {
   messagesDiv.scrollTop = messagesDiv.scrollHeight;
 }
 
-sendBtn.addEventListener("click", sendMessage);
+sendBtn.addEventListener("click", () => sendMessage(currentPlayer, ));
+sendBtn2.addEventListener("click",()=> sendMessage(currentPlayer2) );
 
 renderPlayers();
