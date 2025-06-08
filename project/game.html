@@ -1,43 +1,722 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="./">
-  <link rel="stylesheet" href="./css/Game+Chat.css" />
-  <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/nav.css">
-  <title>Document</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פינגווין פנדמוניום - משחק תחרותי</title>
+    <style>
+        :root {
+            --navy-blue: #001f3f;
+            --bright-blue: #0074D9;
+            --sky-blue: #7FDBFF;
+            --ice-blue: #F0F8FF;
+            --accent-orange: #FF851B;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--ice-blue);
+            color: var(--navy-blue);
+            transition: background-color 0.5s;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--navy-blue), var(--bright-blue));
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .game-phase {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .game-phase.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* עיצוב שלב בחירת דמות */
+        .avatar-selection {
+            text-align: center;
+        }
+        
+        .avatar-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .avatar-option {
+            width: 120px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .avatar-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .avatar-option.selected {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 10px var(--accent-orange));
+        }
+        
+        .avatar-preview {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        .customization-options {
+            margin-top: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .color-options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .color-option.selected {
+            border-color: var(--navy-blue);
+            transform: scale(1.1);
+        }
+        
+        button {
+            background-color: var(--bright-blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: var(--navy-blue);
+        }
+        
+        /* עיצוב שלב המשחק */
+        .game-board {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .players-display {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .player-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            position: relative;
+        }
+        
+        .player-card.current-player {
+            border: 3px solid var(--accent-orange);
+        }
+        
+        .player-avatar {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        .player-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .player-score {
+            font-size: 1.2em;
+            color: var(--bright-blue);
+        }
+        
+        .game-area {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            width: 80%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .game-challenge {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+        
+        .game-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .reactions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .reaction {
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .reaction:hover {
+            transform: scale(1.2);
+        }
+        
+        /* עיצוב שלב התוצאות */
+        .results-screen {
+            text-align: center;
+        }
+        
+        .winner-display {
+            margin: 30px 0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .winner-avatar {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        .leaderboard {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 60%;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .leaderboard-item:last-child {
+            border-bottom: none;
+        }
+        
+        .king-crown {
+            color: gold;
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        /* אנימציות */
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.5s forwards;
+        }
+        
+        /* הודעות */
+        .message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--bright-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transform: translateX(200%);
+            transition: transform 0.3s;
+        }
+        
+        .message.show {
+            transform: translateX(0);
+        }
+    </style>
 </head>
-
 <body>
-  <header class="header">
-    <h1 class="title">VerbaGuard</h1>
-    <nav id="main-nav"> </nav>
-  </header>
-  <!-- צ'אט -->
-  <div id="chat">
-    <div id="messages"></div>
-    <input type="text" id="chatInput" placeholder="הקלד הודעה..." />
-    <button id="sendBtn">שלח</button>
-  </div>
-  <!-- health bars-->
-  <div class="GameBox">
-    <div class="healthbar-container">
-      <div class="healthbar" id="p1Health"></div>
-      <div class="healthbar" id="p2Health"></div>
+    <header>
+        <div class="container">
+            <h1>פינגווין פנדמוניום</h1>
+            <p>המשחק התחרותי הכי מגניב בקוטב!</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- שלב בחירת דמות -->
+        <div id="avatar-selection" class="game-phase active">
+            <h2>בחר את הפינגווין שלך</h2>
+            <div class="avatar-options">
+                <div class="avatar-option" onclick="selectAvatar(1)">
+                    <div class="avatar-preview" style="background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png')"></div>
+                    <p>פינגווין קלאסי</p>
+                </div>
+                <div class="avatar-option" onclick="selectAvatar(2)">
+                    <div class="avatar-preview" style="background-image: url('https://cdn-icons-png.flaticon.com/512/616/616430.png')"></div>
+                    <p>פינגווין צעיר</p>
+                </div>
+                <div class="avatar-option" onclick="selectAvatar(3)">
+                    <div class="avatar-preview" style="background-image: url('https://cdn-icons-png.flaticon.com/512/3069/3069172.png')"></div>
+                    <p>פינגווין אביר</p>
+                </div>
+                <div class="avatar-option" onclick="selectAvatar(4)">
+                    <div class="avatar-preview" style="background-image: url('https://cdn-icons-png.flaticon.com/512/3069/3069198.png')"></div>
+                    <p>פינגווינית נסיכה</p>
+                </div>
+            </div>
+            
+            <div class="customization-options">
+                <h3>התאם אישית את הפינגווין שלך</h3>
+                <p>צבע גוף:</p>
+                <div class="color-options">
+                    <div class="color-option selected" style="background-color: #000000;" onclick="selectColor('#000000')"></div>
+                    <div class="color-option" style="background-color: #3A3B3C;" onclick="selectColor('#3A3B3C')"></div>
+                    <div class="color-option" style="background-color: #566573;" onclick="selectColor('#566573')"></div>
+                    <div class="color-option" style="background-color: #1A5276;" onclick="selectColor('#1A5276')"></div>
+                    <div class="color-option" style="background-color: #2874A6;" onclick="selectColor('#2874A6')"></div>
+                </div>
+                
+                <p>שם הפינגווין:</p>
+                <input type="text" id="penguin-name" placeholder="הכנס שם לפינגווין שלך" maxlength="12">
+                
+                <button onclick="startGame()">התחל משחק!</button>
+            </div>
+        </div>
+        
+        <!-- שלב המשחק -->
+        <div id="game-play" class="game-phase">
+            <div class="game-board">
+                <h2>סיבוב <span id="current-round">1</span></h2>
+                
+                <div class="players-display" id="players-display">
+                    <!-- השחקנים יוצגו כאן דרך JavaScript -->
+                </div>
+                
+                <div class="game-area">
+                    <div class="game-challenge" id="game-challenge">
+                        אתגר: לחץ על הכפתור כמה שיותר מהר ב-5 שניות!
+                    </div>
+                    
+                    <div id="game-action">
+                        <button id="action-button" onclick="performAction()">לחץ כאן!</button>
+                        <div id="timer" style="margin-top: 10px; font-size: 1.2em;"></div>
+                    </div>
+                    
+                    <div class="reactions">
+                        <div class="reaction" onclick="sendReaction('🐧')">🐧</div>
+                        <div class="reaction" onclick="sendReaction('🎉')">🎉</div>
+                        <div class="reaction" onclick="sendReaction('👑')">👑</div>
+                        <div class="reaction" onclick="sendReaction('❄️')">❄️</div>
+                        <div class="reaction" onclick="sendReaction('🏆')">🏆</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- שלב התוצאות -->
+        <div id="game-results" class="game-phase">
+            <div class="results-screen">
+                <h2>תוצאות הסיבוב!</h2>
+                
+                <div class="leaderboard" id="round-results">
+                    <!-- התוצאות יוצגו כאן דרך JavaScript -->
+                </div>
+                
+                <button onclick="nextRound()" id="next-round-btn">סיבוב הבא</button>
+                <button onclick="endGame()" id="end-game-btn" style="display: none;">סיום משחק</button>
+            </div>
+        </div>
+        
+        <!-- מסך המנצח הסופי -->
+        <div id="final-results" class="game-phase">
+            <div class="results-screen">
+                <h2>מלך הפינגווינים!</h2>
+                
+                <div class="winner-display">
+                    <div class="winner-avatar" id="winner-avatar"></div>
+                    <h3 id="winner-name"></h3>
+                    <p>השיג <span id="winner-score"></span> נקודות!</p>
+                </div>
+                
+                <div class="leaderboard" id="final-leaderboard">
+                    <!-- הטבלה הסופית תוצג כאן דרך JavaScript -->
+                </div>
+                
+                <button onclick="restartGame()">שחק שוב</button>
+            </div>
+        </div>
     </div>
-    <canvas id="myCanvas" width="1052" height="500"></canvas>
-  </div>
-
-
-  <script src="./js/nav.js"></script>
-  <script src="./js/data.js"></script>
-  <script src="./js/gptMock.js"></script>
-  <script src="./js/script.js"></script>
-  <script src="./js/game.js"></script>
+    
+    <div class="message" id="message"></div>
+    
+    <script>
+        // משתני משחק
+        let players = [];
+        let currentPlayerIndex = 0;
+        let currentRound = 1;
+        const totalRounds = 3;
+        let selectedAvatar = 1;
+        let selectedColor = '#000000';
+        let playerName = '';
+        let actionCount = 0;
+        let timerInterval;
+        let gameTime = 5;
+        let timeLeft = gameTime;
+        
+        // פונקציות בחירת דמות
+        function selectAvatar(avatarNum) {
+            selectedAvatar = avatarNum;
+            const options = document.querySelectorAll('.avatar-option');
+            options.forEach(option => option.classList.remove('selected'));
+            options[avatarNum-1].classList.add('selected');
+        }
+        
+        function selectColor(color) {
+            selectedColor = color;
+            const colorOptions = document.querySelectorAll('.color-option');
+            colorOptions.forEach(option => option.classList.remove('selected'));
+            event.target.classList.add('selected');
+        }
+        
+        function startGame() {
+            const nameInput = document.getElementById('penguin-name');
+            playerName = nameInput.value.trim() || 'פינגווין אנונימי';
+            
+            // יצירת שחקנים (במשחק אמיתי זה יגיע מהשרת)
+            players = [
+                { id: 1, name: playerName, avatar: selectedAvatar, color: selectedColor, score: 0, isPlayer: true },
+                { id: 2, name: 'פינגווינו', avatar: 2, color: '#3A3B3C', score: 0, isPlayer: false },
+                { id: 3, name: 'פינגי', avatar: 3, color: '#1A5276', score: 0, isPlayer: false },
+                { id: 4, name: 'פינגו', avatar: 4, color: '#2874A6', score: 0, isPlayer: false }
+            ];
+            
+            // מעבר למסך המשחק
+            document.getElementById('avatar-selection').classList.remove('active');
+            document.getElementById('game-play').classList.add('active');
+            
+            // הצגת השחקנים
+            updatePlayersDisplay();
+            
+            // התחלת התור הראשון
+            startPlayerTurn();
+        }
+        
+        // פונקציות תצוגת שחקנים
+        function updatePlayersDisplay() {
+            const playersDisplay = document.getElementById('players-display');
+            playersDisplay.innerHTML = '';
+            
+            players.forEach((player, index) => {
+                const playerCard = document.createElement('div');
+                playerCard.className = `player-card ${index === currentPlayerIndex ? 'current-player' : ''}`;
+                
+                // צבע רקע לפי הצבע שנבחר
+                const avatarColors = {
+                    1: { primary: player.color, secondary: '#FFFFFF' },
+                    2: { primary: player.color, secondary: '#F5B041' },
+                    3: { primary: player.color, secondary: '#E74C3C' },
+                    4: { primary: player.color, secondary: '#9B59B6' }
+                };
+                
+                const colors = avatarColors[player.avatar] || avatarColors[1];
+                
+                playerCard.innerHTML = `
+                    <div class="player-avatar" style="background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png'); 
+                        filter: drop-shadow(0 0 5px ${colors.primary})">
+                    </div>
+                    <div class="player-name">${player.name}</div>
+                    <div class="player-score">${player.score} נקודות</div>
+                `;
+                
+                playersDisplay.appendChild(playerCard);
+            });
+        }
+        
+        // פונקציות תור שחקן
+        function startPlayerTurn() {
+            actionCount = 0;
+            timeLeft = gameTime;
+            document.getElementById('timer').textContent = `נשארו ${timeLeft} שניות`;
+            
+            // עדכון תצוגת השחקנים
+            updatePlayersDisplay();
+            
+            // הגדרת האתגר
+            const challenges = [
+                "לחץ על הכפתור כמה שיותר מהר ב-5 שניות!",
+                "החזק את הכפתור לחוץ הכי הרבה זמן שאתה יכול!",
+                "לחץ על הכפתור בדיוק כשהשעון מגיע ל-0!"
+            ];
+            
+            document.getElementById('game-challenge').textContent = 
+                `אתגר: ${challenges[(currentRound-1) % challenges.length]}`;
+            
+            // התחלת הטיימר
+            clearInterval(timerInterval);
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+        
+        function updateTimer() {
+            timeLeft--;
+            document.getElementById('timer').textContent = `נשארו ${timeLeft} שניות`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                endPlayerTurn();
+            }
+        }
+        
+        function performAction() {
+            if (timeLeft <= 0) return;
+            
+            actionCount++;
+            
+            // אנימציה ללחיצה
+            const button = document.getElementById('action-button');
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+            }, 100);
+            
+            // עבור אתגר 2 - החזקה לחוץ
+            if (currentRound % 3 === 2) {
+                // לא מגדילים את הספירה אלא מחכים לשחרור
+                return;
+            }
+        }
+        
+        function endPlayerTurn() {
+            // חישוב הניקוד לפי האתגר
+            let roundScore = 0;
+            
+            if (currentRound % 3 === 1) {
+                // אתגר 1 - לחיצות מהירות
+                roundScore = actionCount * 10;
+            } else if (currentRound % 3 === 2) {
+                // אתגר 2 - החזקה (מדומה)
+                roundScore = Math.floor(Math.random() * 50) + 30;
+            } else {
+                // אתגר 3 - דיוק (מדומה)
+                roundScore = timeLeft === 0 ? 100 : Math.abs(timeLeft) * 5;
+            }
+            
+            // עדכון הניקוד
+            players[currentPlayerIndex].score += roundScore;
+            
+            // מעבר לשחקן הבא או לסיום הסיבוב
+            if (currentPlayerIndex < players.length - 1) {
+                currentPlayerIndex++;
+                startPlayerTurn();
+            } else {
+                endRound();
+            }
+        }
+        
+        // פונקציות סיבוב
+        function endRound() {
+            currentPlayerIndex = 0;
+            clearInterval(timerInterval);
+            
+            // מעבר למסך תוצאות
+            document.getElementById('game-play').classList.remove('active');
+            document.getElementById('game-results').classList.add('active');
+            
+            // הצגת תוצאות הסיבוב
+            displayRoundResults();
+        }
+        
+        function displayRoundResults() {
+            const roundResults = document.getElementById('round-results');
+            roundResults.innerHTML = '<h3>טבלת ניקוד</h3>';
+            
+            // מיון השחקנים לפי ניקוד
+            const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
+            
+            sortedPlayers.forEach((player, index) => {
+                const playerResult = document.createElement('div');
+                playerResult.className = 'leaderboard-item slide-in';
+                playerResult.style.animationDelay = `${index * 0.1}s`;
+                
+                playerResult.innerHTML = `
+                    <span>${index + 1}. ${player.name}</span>
+                    <span>${player.score} נקודות</span>
+                `;
+                
+                roundResults.appendChild(playerResult);
+            });
+            
+            // עדכון כפתור לסיבוב הבא או סיום
+            if (currentRound < totalRounds) {
+                document.getElementById('next-round-btn').style.display = 'inline-block';
+                document.getElementById('end-game-btn').style.display = 'none';
+            } else {
+                document.getElementById('next-round-btn').style.display = 'none';
+                document.getElementById('end-game-btn').style.display = 'inline-block';
+            }
+        }
+        
+        function nextRound() {
+            currentRound++;
+            document.getElementById('current-round').textContent = currentRound;
+            
+            // מעבר חזרה למשחק
+            document.getElementById('game-results').classList.remove('active');
+            document.getElementById('game-play').classList.add('active');
+            
+            startPlayerTurn();
+        }
+        
+        function endGame() {
+            // מעבר למסך תוצאות סופי
+            document.getElementById('game-results').classList.remove('active');
+            document.getElementById('final-results').classList.add('active');
+            
+            // הצגת המנצח
+            displayFinalResults();
+        }
+        
+        function displayFinalResults() {
+            // מיון השחקנים לפי ניקוד
+            const sortedPlayers = [...players].sort((a, b) => b.score - a.score);
+            const winner = sortedPlayers[0];
+            
+            // הצגת המנצח
+            document.getElementById('winner-name').textContent = winner.name;
+            document.getElementById('winner-score').textContent = winner.score;
+            
+            // הצגת הטבלה הסופית
+            const finalLeaderboard = document.getElementById('final-leaderboard');
+            finalLeaderboard.innerHTML = '<h3>טבלת ניקוד סופית</h3>';
+            
+            sortedPlayers.forEach((player, index) => {
+                const playerResult = document.createElement('div');
+                playerResult.className = 'leaderboard-item slide-in';
+                playerResult.style.animationDelay = `${index * 0.1}s`;
+                
+                const crown = index === 0 ? '<span class="king-crown">👑</span>' : '';
+                
+                playerResult.innerHTML = `
+                    <span>${crown}${index + 1}. ${player.name}</span>
+                    <span>${player.score} נקודות</span>
+                `;
+                
+                finalLeaderboard.appendChild(playerResult);
+            });
+        }
+        
+        // פונקציות עזר
+        function sendReaction(emoji) {
+            showMessage(`שלחת תגובה: ${emoji}`);
+        }
+        
+        function showMessage(text) {
+            const message = document.getElementById('message');
+            message.textContent = text;
+            message.classList.add('show');
+            
+            setTimeout(() => {
+                message.classList.remove('show');
+            }, 2000);
+        }
+        
+        function restartGame() {
+            // איפוס המשחק
+            currentRound = 1;
+            currentPlayerIndex = 0;
+            
+            // מעבר חזרה לבחירת דמות
+            document.getElementById('final-results').classList.remove('active');
+            document.getElementById('avatar-selection').classList.add('active');
+        }
+        
+        // מאזינים לאירועים
+        document.getElementById('action-button').addEventListener('mousedown', function() {
+            if (currentRound % 3 === 2) {
+                // אתגר החזקה - מתחיל לספור רק כשהכפתור לחוץ
+                this.dataset.holdStart = Date.now();
+            }
+        });
+        
+        document.getElementById('action-button').addEventListener('mouseup', function() {
+            if (currentRound % 3 === 2 && this.dataset.holdStart) {
+                const holdTime = (Date.now() - parseInt(this.dataset.holdStart)) / 1000;
+                actionCount = holdTime;
+                delete this.dataset.holdStart;
+            }
+        });
+    </script>
 </body>
 
 </html>

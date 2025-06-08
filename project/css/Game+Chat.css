@@ -1,17 +1,9 @@
-.GameBox{
-    width: 1052px;
-    height: 500px;
-    margin-right: 213px;
-    border: 3px solid black;
-    margin-top: -88px;
-    background-color: gray;
-    height: 543px;
-}
 .GameBox {
   width: 1052px;
   background-color: gray;
   border: black 3px solid;
   margin-left: 300px;
+  margin-top: -113px;
 
 }
 
@@ -19,7 +11,8 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  padding: 0 20px; /* add spacing from canvas border if needed */
+  padding: 0 20px;
+  /* add spacing from canvas border if needed */
 }
 
 .healthbar {
@@ -29,21 +22,39 @@
   background-color: green;
 }
 
-  #messages {
-    height: 200px;
-    width: 226;
-    background: #eee;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  .message {
-    padding: 5px;
-    border-bottom: 1px solid #ccc;
+#messages {
+  height: 200px;
+  width: 226;
+  background: #eee;
+  padding: 10px;
+  margin-bottom: 10px;
+}
 
-  }
+.message {
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
 
-  #chat {
-    margin-top: 20px;
-    width: 285px;
-    height: 93px;
-  }
+}
+
+#chat {
+  margin-top: 20px;
+  width: 285px;
+  height: 93px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: first baseline;
+
+  background-color: rgb(72, 77, 146);
+  height: 155px;
+
+}
+
+.nav {
+  padding-left: 42px;
+  position: relative;
+  top: 6px;
+  color: rgb(42, 145, 150);
+}
