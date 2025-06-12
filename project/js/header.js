@@ -2,7 +2,7 @@ function header(){
   document.addEventListener("DOMContentLoaded", () => {
     const headerPlace = document.getElementById("headerplace");
 
-     fetch('./project/header.html')
+     fetch('./header.html')
       .then(response => response.text())
       .then(data => {
         if (headerPlace) {
