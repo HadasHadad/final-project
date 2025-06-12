@@ -234,9 +234,7 @@ function gameLoop() {
 gameLoop();
 
 
-js
-Copy
-Edit
+
 document.addEventListener("DOMContentLoaded", () => {
   const chatInput = document.getElementById("chatInput");
   const sendBtn = document.getElementById("sendBtn");
