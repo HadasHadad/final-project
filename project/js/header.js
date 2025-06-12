@@ -23,14 +23,16 @@ function header(){
             nav.innerHTML = `
               <a href="./index.html">בית</a>
               <a href="./project/game.html">🎮המשחק</a>
-              <a href="./about.html">אודות</a>
-              <a href="./log-in page.html">התחברות</a>
-              <a href="./Sign-Up_Page.html">הרשמה</a>
-              <a href="./Contactandhelp.html">צור קשר</a>
+              <a href="./project/about.html">אודות</a>
+              <a href="./project/log-in_page.html">התחברות</a>
+              <a href="./project/Sign-Up_Page.html">הרשמה</a>
+              <a href="./project/Contactandhelp.html">צור קשר</a>
             `;
           }
         }
       });
+
+      
   });
 }
 
@@ -38,5 +40,5 @@ function header(){
 
 
 header()    
-// erhtv kpubemhv fsh a,gcus
+
   

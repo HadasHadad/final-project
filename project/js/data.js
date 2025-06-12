@@ -8,7 +8,8 @@ let players = JSON.parse(localStorage.getItem("players")) || [
 let inputarea = document.getElementById("inputarea");
 let inputarea1 = document.getElementById("inputarea1");
 let cnfrmbtn = document.getElementById("cnfrmbtn");
-let AddToPlayerBaseBtn = document.getElementById("AddToPlayerBase");
+let AddToPlayerBaseBtn = document.getElementById("AddToPlayerBaseBtn")
+console.log(AddToPlayerBaseBtn)
 
 AddToPlayerBaseBtn.disabled = true;
 
