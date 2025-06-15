@@ -69,9 +69,10 @@ a{
    font-size: 22px;
    font-family: unset;
    left: 8px;
-
-   
+  text-align: center;
 }
+   
+
 
 #playbutton, #info {
   display: inline-block;
