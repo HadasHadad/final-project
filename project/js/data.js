@@ -4,6 +4,7 @@ let players = JSON.parse(localStorage.getItem("players")) || [
   { id: 2, name: "שחקן2", password: "password2", reputation: 10 },
   { id: 3, name: "שחקן3", password: "password3", reputation: 10 },
 ];
+let loggedIn ;
 
 let inputarea = document.getElementById("inputarea");
 let inputarea1 = document.getElementById("inputarea1");
@@ -33,7 +34,7 @@ function AddToPlayerBase(username, password1) {
 
   const IdUser = players.length ? players[players.length - 1].id + 1 : 1;
 
-  const newPlayer = { id: IdUser, name: username, password: password1, reputation: 10 };
+  const newPlayer = { id: IdUser, name: username, password: password1, reputation: 10 ,loggedIn: "false"};
   players.push(newPlayer);
 
 

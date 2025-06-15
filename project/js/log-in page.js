@@ -26,6 +26,7 @@ function login(event) {
   );
 
   if (userFound) {
+    loggedIn = "true"
     message.style.color = "green";
     message.textContent = "Login successful!";
     localStorage.setItem("loggedIn", "true");
