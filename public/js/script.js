@@ -26,7 +26,7 @@ function sendMessage() {
   const messageDiv = document.createElement("div");
   messageDiv.className = "message";
   messageDiv.innerHTML = `
-    <strong>${currentPlayer.name}:</strong> ${text}
+    <strong>${currentPlayer.name}: </strong> ${text}
     <button class="report-btn">דווח</button>
   `;
 
