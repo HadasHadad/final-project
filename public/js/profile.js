@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     { gameWon: 0, gameLost: 0, name: "שחקן2", reputation: 10 }
   ];
 
+
+  let current = JSON.parse(localStorage.getItem("UserInfo"))
+  console.log(current.name)
   // Load from localStorage or use default
   let storedData = localStorage.getItem('profileInfo');
   let profileInfo;
@@ -26,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Show greeting for first player
   const greetingDiv = document.getElementById('greeting');
   if (profileInfo && profileInfo.length > 0) {
-    greetingDiv.innerHTML = `שלום ${profileInfo[0].name}, זכית ${profileInfo[0].gameWon} והפסדת ${profileInfo[0].gameLost}`;
+    greetingDiv.innerHTML = `שלום ${current.name}, זכית ${profileInfo[0].gameWon} והפסדת ${profileInfo[0].gameLost}`;
   }
 
   // Show profile info for all players
