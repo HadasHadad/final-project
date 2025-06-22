@@ -26,10 +26,12 @@ function login(event) {
   );
 
   if (userFound) {
-    loggedIn = "true"
     message.style.color = "green";
     message.textContent = "Login successful!";
+    localStorage.setItem("CurrentlyloggedIn", JSON.stringify(userFound));
     localStorage.setItem("loggedIn", "true");
+    localStorage.setItem("currentUser", JSON.stringify(userFound));
+
     localStorage.setItem("currentUser", username);
     setTimeout(() => {
       window.location.href = "./index.html";

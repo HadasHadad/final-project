@@ -1,6 +1,14 @@
 const canvas = document.getElementById("myCanvas"); 
 const ctx = canvas.getContext("2d");
 
+//the number is to signal which player 
+let gameswon1 = 0;
+let gameswon2 = 0;
+let gameslost1 = 0;
+let  gameslost2 = 0;
+
+
+
 const headSize = 40;
 let p1BodyWidth = 100, p1BodyHeight = 100;
 let p2BodyWidth = 100, p2BodyHeight = 100;
@@ -229,6 +237,8 @@ function updateBullets() {
       if (p2Health === 0 && !gameOver) {
         gameOver = true;
         winner = "Player 1";
+        gameswon1++;
+        gameslost2++;
       }
     } else if (p1BulletX > canvas.width) {
       p1BulletX = null;
@@ -254,6 +264,8 @@ function updateBullets() {
       if (p1Health === 0 && !gameOver) {
         gameOver = true;
         winner = "Player 2";
+        gameswon2++;
+        gameslost1++;
       }
     } else if (p2BulletX + bulletSize < 0) {
       p2BulletX = null;
@@ -298,3 +310,5 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleBtn.textContent = isHidden ? 'Hide Moves' : 'Show Moves';
   });
 });
+
+console.log(gameslost1)

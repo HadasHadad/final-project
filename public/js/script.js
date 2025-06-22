@@ -35,7 +35,7 @@ function sendMessage() {
   reportBtn.addEventListener("click", () => {
     if (isOffensive(text)) {
       alert("תגובה פוגענית! מורידים מוניטין לשחקן.");
-            window.location.href = 'report.html';
+            // window.location.href = 'report.html';
       currentPlayer.reputation--;
       renderPlayers();
     } else {
