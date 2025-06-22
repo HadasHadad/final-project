@@ -16,6 +16,9 @@
     <nav id="main-nav"></nav>
   </header>
 
+ 
+  </div>
+
   <!-- Chat -->
   <div id="chat">
     <div id="messagesDiv"></div>
@@ -44,14 +47,10 @@
       <div class="moves-panel">
         <button id="toggleMovesBtn">Show Moves</button>
 
-
-
-
         <!-- this button so there is no error, there is no other way to solve this because 2 html use the same js-->
-         <button id="cnfrmbtn"></button>
+        <button id="cnfrmbtn"></button>
         <button id="AddToPlayerBaseBtn">Sign Up</button>
         <!--if you are the person who needs to check the code, do not check this👍👍👍-->
-
 
         <!-- Moves Box (hidden by default) -->
         <div class="movesBox" id="movesBox" style="display: none;">
@@ -69,7 +68,15 @@
   <script src="/public/js/script.js"></script>
   <script src="/public/js/game.js"></script>
 
-
+  <!-- סקריפט לדיווח -->
+  <script>
+    document.getElementById('reportBtn').addEventListener('click', function () {
+      const confirmed = confirm("האם אתה בטוח שברצונך לדווח?");
+      if (confirmed) {
+        window.location.href = "/public/report.html"; // שנה את הנתיב אם צריך
+      }
+    });
+  </script>
 
 </body>
 
