@@ -1,42 +1,111 @@
 const canvas = document.getElementById("myCanvas"); 
 const ctx = canvas.getContext("2d");
 
+//the number is to signal which player 
+let gameswon1 = 0;
+let gameswon2 = 0;
+let gameslost1 = 0;
+let  gameslost2 = 0;
+
+
+
 const headSize = 40;
-const bodyWidth = 100;
-const bodyHeight = 100;
+let p1BodyWidth = 100, p1BodyHeight = 100;
+let p2BodyWidth = 100, p2BodyHeight = 100;
 const speed = 75;
 
-// Player positions
-let p1x = 50, p1y = 400;
-let p2x = 750, p2y = 400;
+let p1x = 50, p1y = 200;
+let p2x = 750, p2y = 200;
 
-// Bullets
 let bulletSize = 20;
-let p1BulletHeight = 10;       // separate bullet heights
+let p1BulletHeight = 10;
 const p2BulletHeight = 10;
 const bulletSpeed = 20;
 let p1BulletX = null, p1BulletY = null;
 let p2BulletX = null, p2BulletY = null;
 
-// Health
 let p1Health = 100, p2Health = 100;   
 
-// Game status
 let gameOver = false;
 let winner = "";
 
-// Player 1 Power Shot
 let lastHUsed = 0;
 let powerShotActive = false;
-const powerCooldown = 5000; // ms
+let powerCooldown = 5000;
 
-// Player 2 Rapid Fire
 let lastKUsed = 0;
 let rapidFireActive = false;
-const fastCooldown = 8000;
+let fastCooldown = 8000;
 const fastMultiplier = 3;
 let rapidFireStart = 0;
-const rapidFireDuration = 1500; // 3 seconds
+const rapidFireDuration = 1500;
+
+// Player 1 restriction 
+if (players[0].reputation >= 9) {
+  // No restriction for reputation 9 and 10
+  p1Health = 100;
+  powerCooldown = 5000;
+  p1BodyHeight = 100;
+  p1BodyWidth = 100;
+} else if (players[0].reputation >= 8) {
+  p1Health = 90;
+  powerCooldown = 6000;
+  p1BodyHeight = 110;
+  p1BodyWidth = 110;
+} else if (players[0].reputation >= 6) {
+  p1Health = 80;
+  powerCooldown = 7000;
+  p1BodyHeight = 125;
+  p1BodyWidth = 125;
+} else if (players[0].reputation >= 4) {
+  p1Health = 60;
+  powerCooldown = 8000;
+  p1BodyHeight = 150;
+  p1BodyWidth = 150;
+} else if (players[0].reputation >= 2) {
+  p1Health = 40;
+  powerCooldown = 9000;
+  p1BodyHeight = 175;
+  p1BodyWidth = 175;
+} else { // reputation 0 or 1
+  p1Health = 20;
+  powerCooldown = 10000;
+  p1BodyHeight = 900;
+  p1BodyWidth = 900;
+}
+
+// Player 2 restriction 
+if (players[1].reputation >= 9) {
+  p2Health = 100;
+  fastCooldown = 5000;
+  p2BodyHeight = 100;
+  p2BodyWidth = 100;
+} else if (players[1].reputation >= 8) {
+  p2Health = 90;
+  fastCooldown = 6000;
+  p2BodyHeight = 110;
+  p2BodyWidth = 110;
+} else if (players[1].reputation >= 6) {
+  p2Health = 80;
+  fastCooldown = 7000;
+  p2BodyHeight = 125;
+  p2BodyWidth = 125;
+} else if (players[1].reputation >= 4) {
+  p2Health = 60;
+  fastCooldown = 8000;
+  p2BodyHeight = 150;
+  p2BodyWidth = 150;
+} else if (players[1].reputation >= 2) {
+  p2Health = 40;
+  fastCooldown = 9000;
+  p2BodyHeight = 175;
+  p2BodyWidth = 175;
+} else {
+  p2Health = 20;
+  fastCooldown = 10000;
+  p2BodyHeight = 200;
+  p2BodyWidth = 200;
+}
 
 document.addEventListener("keydown", move);
 
@@ -44,40 +113,35 @@ function move(event) {
   if (gameOver) return;
 
   switch (event.key.toLowerCase()) {
-    // Player 1 Movement
     case "w": p1y = Math.max(0, p1y - speed); break;
-    case "s": p1y = Math.min(canvas.height - bodyHeight, p1y + speed); break;
+    case "s": p1y = Math.min(canvas.height - p1BodyHeight, p1y + speed); break;
     case "a": p1x = Math.max(0, p1x - speed); break;
-    case "d": p1x = Math.min(canvas.width - bodyWidth, p1x + speed); break;
+    case "d": p1x = Math.min(canvas.width - p1BodyWidth, p1x + speed); break;
 
-    // Player 1 Normal Shot
     case "g":
       if (p1BulletX === null) {
         p1BulletHeight = 10;
-        p1BulletX = p1x + bodyWidth;
-        p1BulletY = p1y + bodyHeight / 2 - p1BulletHeight / 2;
+        p1BulletX = p1x + p1BodyWidth;
+        p1BulletY = p1y + p1BodyHeight / 2 - p1BulletHeight / 2;
         powerShotActive = false;
       }
       break;
 
-    // Player 1 Power Shot (H)
     case "h":
       if (Date.now() - lastHUsed >= powerCooldown && p1BulletX === null) {
         p1BulletHeight = 50;
-        p1BulletX = p1x + bodyWidth;
-        p1BulletY = p1y + bodyHeight / 2 - p1BulletHeight / 2;
+        p1BulletX = p1x + p1BodyWidth;
+        p1BulletY = p1y + p1BodyHeight / 2 - p1BulletHeight / 2;
         powerShotActive = true;
         lastHUsed = Date.now();
       }
       break;
 
-    // Player 2 Movement
     case "arrowup": p2y = Math.max(0, p2y - speed); break;
-    case "arrowdown": p2y = Math.min(canvas.height - bodyHeight, p2y + speed); break;
+    case "arrowdown": p2y = Math.min(canvas.height - p2BodyHeight, p2y + speed); break;
     case "arrowleft": p2x = Math.max(0, p2x - speed); break;
-    case "arrowright": p2x = Math.min(canvas.width - bodyWidth, p2x + speed); break;
+    case "arrowright": p2x = Math.min(canvas.width - p2BodyWidth, p2x + speed); break;
 
-    // Player 2 Normal or Rapid Shot (L)
     case "l":
       const inRapidMode = rapidFireActive && (Date.now() - rapidFireStart < rapidFireDuration);
       const canShoot = p2BulletX === null || inRapidMode;
@@ -85,12 +149,11 @@ function move(event) {
       if (canShoot) {
         if (p2BulletX === null) {
           p2BulletX = p2x - bulletSize;
-          p2BulletY = p2y + bodyHeight / 2 - p2BulletHeight / 2;
+          p2BulletY = p2y + p2BodyHeight / 2 - p2BulletHeight / 2;
         }
       }
       break;
 
-    // Player 2 Activate Rapid Fire Mode (K)
     case "k":
       if (Date.now() - lastKUsed >= fastCooldown) {
         rapidFireActive = true;
@@ -106,19 +169,23 @@ function move(event) {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Player 1
+  // Calculate head positions so heads are always centered over the body
+  const p1HeadX = p1x + (p1BodyWidth / 2) - (headSize / 2);
+  const p1HeadY = p1y - headSize;
+
+  const p2HeadX = p2x + (p2BodyWidth / 2) - (headSize / 2);
+  const p2HeadY = p2y - headSize;
+
   ctx.fillStyle = "black";
-  ctx.fillRect(p1x, p1y, bodyWidth, bodyHeight);
+  ctx.fillRect(p1x, p1y, p1BodyWidth, p1BodyHeight);
   ctx.fillStyle = "green";
-  ctx.fillRect(p1x + 25, p1y - headSize, headSize, headSize);
+  ctx.fillRect(p1HeadX, p1HeadY, headSize, headSize);
 
-  // Player 2
   ctx.fillStyle = "black";
-  ctx.fillRect(p2x, p2y, bodyWidth, bodyHeight);
+  ctx.fillRect(p2x, p2y, p2BodyWidth, p2BodyHeight);
   ctx.fillStyle = "blue";
-  ctx.fillRect(p2x + 25, p2y - headSize, headSize, headSize);
+  ctx.fillRect(p2HeadX, p2HeadY, headSize, headSize);
 
-  // Bullets
   if (p1BulletX !== null) {
     ctx.fillStyle = "green";
     ctx.fillRect(p1BulletX, p1BulletY, bulletSize, p1BulletHeight);
@@ -129,17 +196,14 @@ function draw() {
     ctx.fillRect(p2BulletX, p2BulletY, bulletSize, p2BulletHeight);
   }
 
-  // Cooldown text display
   ctx.fillStyle = "white";
   ctx.font = "20px Arial";
 
-  // Player 1 power shot timer
   const hCooldownLeft = Math.max(0, powerCooldown - (Date.now() - lastHUsed));
   if (hCooldownLeft > 0) {
     ctx.fillText(`P1 Power Cooldown: ${Math.ceil(hCooldownLeft / 1000)}s`, 10, 30);
   }
 
-  // Player 2 rapid fire timer or cooldown
   const now = Date.now();
   const timeSinceRapidFireStart = now - rapidFireStart;
   if (rapidFireActive && timeSinceRapidFireStart < rapidFireDuration) {
@@ -151,7 +215,6 @@ function draw() {
     }
   }
 
-  // Update health bars
   document.getElementById("p1Health").style.width = `${p1Health * 5}px`;
   document.getElementById("p2Health").style.width = `${p2Health * 5}px`;
 }
@@ -162,9 +225,9 @@ function updateBullets() {
 
     if (
       p1BulletX + bulletSize >= p2x &&
-      p1BulletX <= p2x + bodyWidth &&
+      p1BulletX <= p2x + p2BodyWidth &&
       p1BulletY >= p2y &&
-      p1BulletY <= p2y + bodyHeight
+      p1BulletY <= p2y + p2BodyHeight
     ) {
       const dmg = powerShotActive ? 30 : 10;
       p2Health = Math.max(0, p2Health - dmg);
@@ -174,6 +237,8 @@ function updateBullets() {
       if (p2Health === 0 && !gameOver) {
         gameOver = true;
         winner = "Player 1";
+        gameswon1++;
+        gameslost2++;
       }
     } else if (p1BulletX > canvas.width) {
       p1BulletX = null;
@@ -188,10 +253,10 @@ function updateBullets() {
     p2BulletX -= speed;
 
     if (
-      p2BulletX <= p1x + bodyWidth &&
+      p2BulletX <= p1x + p1BodyWidth &&
       p2BulletX + bulletSize >= p1x &&
       p2BulletY >= p1y &&
-      p2BulletY <= p1y + bodyHeight
+      p2BulletY <= p1y + p1BodyHeight
     ) {
       p1Health = Math.max(0, p1Health - 10);
       p2BulletX = null;
@@ -199,13 +264,14 @@ function updateBullets() {
       if (p1Health === 0 && !gameOver) {
         gameOver = true;
         winner = "Player 2";
+        gameswon2++;
+        gameslost1++;
       }
     } else if (p2BulletX + bulletSize < 0) {
       p2BulletX = null;
     }
   }
 
-  // Turn off rapid fire if duration expired
   if (rapidFireActive && (Date.now() - rapidFireStart >= rapidFireDuration)) {
     rapidFireActive = false;
   }
@@ -234,42 +300,15 @@ function gameLoop() {
 gameLoop();
 
 
-js
-Copy
-Edit
-document.addEventListener("DOMContentLoaded", () => {
-  const chatInput = document.getElementById("chatInput");
-  const sendBtn = document.getElementById("sendBtn");
-  const messages = document.getElementById("messages");
-  const playerSelect = document.getElementById("playerSelect");
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('toggleMovesBtn');
+  const movesBox = document.getElementById('movesBox');
 
-  function sendMessage() {
-    const message = chatInput.value.trim();
-    const player = playerSelect.value;
-
-    if (message !== "") {
-      const messageElement = document.createElement("div");
-      messageElement.textContent = `${player}: ${message}`;
-      messageElement.style.padding = "5px";
-      messageElement.style.borderBottom = "1px solid #ccc";
-
-      // אפשר לעצב לפי שחקן
-      if (player === "Player 1") {
-        messageElement.style.color = "blue";
-      } else {
-        messageElement.style.color = "green";
-      }
-
-      messages.appendChild(messageElement);
-      messages.scrollTop = messages.scrollHeight; // גלילה אוטומטית
-      chatInput.value = "";
-    }
-  }
-
-  sendBtn.addEventListener("click", sendMessage);
-  chatInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      sendMessage();
-    }
+  toggleBtn.addEventListener('click', () => {
+    const isHidden = movesBox.style.display === 'none';
+    movesBox.style.display = isHidden ? 'block' : 'none';
+    toggleBtn.textContent = isHidden ? 'Hide Moves' : 'Show Moves';
   });
 });
+
+console.log(gameslost1)

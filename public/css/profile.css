@@ -1,0 +1,138 @@
+
+body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5; 
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh; 
+    direction: rtl; 
+    text-align: right;
+}
+
+#headerplace {
+    width: 100%;
+  
+}
+
+
+#playerForm {
+    background-color: #ffffff; 
+    padding: 30px 40px;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    max-width: 800px; 
+    width: 90%; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    box-sizing: border-box;
+
+#playerForm h1 {
+    color: #4682b4;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e7f3f7; 
+    text-align: right; 
+}
+
+
+#playerForm p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.8; 
+    text-align: right; 
+}
+
+
+#profile.profile-box {
+    background-color: #e6f2ff; 
+    border: 1px solid #add8e6;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    max-width: 760px;
+    width: 85%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    text-align: right;
+}
+
+#profile.profile-box h2 {
+    color: #007bff;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #cceeff; 
+    padding-bottom: 10px;
+}
+
+#profile.profile-box p strong {
+    color: #333333; 
+    margin-left: 5px; 
+}
+
+.footercopyright {
+    background-color: #333333;
+    color: white; 
+    padding: 20px 0;
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    border-top: 5px solid #007bff; 
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    gap: 25px; 
+    margin-bottom: 15px;
+    flex-wrap: wrap; 
+}
+
+.footer a.footer { 
+    color: #87cefa;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.footer a.footer:hover {
+    color: #ffffff; 
+    text-decoration: underline;
+}
+
+.footercopyrighth1 {
+    font-size: 0.9em;
+    color: #aaaaaa;
+    margin: 0;
+    text-align: center;
+}
+}
+
+#welcome{
+    font-size: x-large;
+    font-family: inherit;
+    position: relative;
+    right: 567px;
+}
+
+#ststus{
+    font-size: x-large;
+    font-family: inherit;
+    position: relative;
+    top: -99px;
+}
+
+#monitin{
+    font-size: x-large;
+    font-family: inherit;
+    position: relative;
+    top: -99px;
+}
+.red{
+ color: red;
+}

@@ -7,7 +7,12 @@
 }
 
 a{
-  color: #efe037;
+  color:white;
+    text-decoration: none;
+}
+
+a:hover{
+  color: orange;
 }
 #special-btn {
   background: none;

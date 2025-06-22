@@ -1,0 +1,207 @@
+/* body {
+  font-family: Arial, sans-serif;
+  background-color: #e6eaf0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.SignBox {
+  width: 400px;
+  background-color: #fff;
+  padding: 30px 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.SignBox h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.SignBox textarea {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.terms-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.terms-label a {
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.terms-label a:hover {
+  text-decoration: underline;
+}
+
+#AddToPlayerBase {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#AddToPlayerBase:hover {
+  background-color: #218838;
+}
+#cnfrmbtn {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+#cnfrmbtn:hover {
+  text-decoration: underline;
+}
+#AddToPlayerBase {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+#AddToPlayerBase:disabled {
+  opacity: 0.5; 
+  cursor: not-allowed;
+} */
+/* Basic body styling for a clean background and centering */
+body {
+       font-family: Arial, sans-serif;
+    background-color: #456799;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+
+.SignBox {
+    background-color: #ffffff; /* White background for the box */
+    padding: 50px; /* שינוי: הגדלתי את הריפוד הפנימי של הקוביה */
+    border-radius: 10px; /* Slightly rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    width: 100%; /* Take full width of its flex container */
+    max-width: 500px; /* שינוי: הגדלתי את הרוחב המרבי של הקוביה */
+    text-align: center; /* Center text elements within the box */
+    display: flex; /* Use flexbox for internal elements */
+    flex-direction: column; /* Stack elements vertically */
+    gap: 20px; /* שינוי: הגדלתי את הרווח בין האלמנטים בתוך הקוביה */
+    font-size: 1.1em; /* שינוי: גודל כתב בסיסי גדול יותר לכל הטקסט בתוך הקוביה */
+}
+
+/* Styling for the Sign Up heading */
+.SignBox h2 {
+    color: #333333; /* Dark grey color for the heading */
+    margin-bottom: 30px; /* שינוי: הגדלתי את הרווח מתחת לכותרת */
+    font-size: 2.5em; /* שינוי: הגדלתי משמעותית את גודל הכותרת */
+}
+
+/* Styling for the textarea input fields */
+#inputarea,
+#inputarea1 {
+    width: calc(100% - 24px); /* שינוי: התאמת רוחב לריפוד החדש */
+    padding: 15px 12px; /* שינוי: הגדלתי את הריפוד הפנימי בשדות הקלט */
+    border: 1px solid #add8e6; /* מסגרת תכלת בהיר */
+    border-radius: 6px; /* Rounded corners for inputs */
+    font-size: 1.2em; /* שינוי: הגדלתי את גודל הכתב בשדות הקלט */
+    color: #4682b4; /* צבע טקסט תכלת כהה יותר, כדי שיהיה קריא */
+    resize: none; /* Prevent resizing of textareas */
+    height: auto; /* שינוי: אוטומטי כדי לאפשר תוכן רב יותר אם יהיה */
+    min-height: 45px; /* שינוי: גובה מינימלי לשדה */
+    line-height: 1.5; /* Center text vertically better */
+    overflow: hidden; /* Hide scrollbars if text overflows */
+}
+
+/* Placeholder text color */
+#inputarea::placeholder,
+#inputarea1::placeholder {
+    color: #92b1d3; /* צבע תכלת בהיר יותר לפלייסהולדר */
+}
+
+/* Focus state for input fields */
+#inputarea:focus,
+#inputarea1:focus {
+    border-color: #87cefa; /* תכלת זוהר יותר בפוקוס */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(135, 206, 250, 0.25); /* צל תכלת זוהר בפוקוס */
+}
+
+/* Styling for the terms and services label and checkbox */
+.terms-label {
+    display: flex; /* Use flexbox to align checkbox and text */
+    align-items: center; /* Vertically align items */
+    font-size: 1.1em; /* שינוי: הגדלתי את הפונט של התנאים */
+    color: #6a9ac9; /* צבע תכלת-אפרפר לטקסט */
+    margin-top: 15px; /* שינוי: הגדלתי את הרווח מעל הלייבל */
+    justify-content: center; /* Center the whole label */
+}
+
+.terms-label input[type="checkbox"] {
+    margin-left: 10px; /* שינוי: רווח גדול יותר בין תיבת הסימון לטקסט */
+    cursor: pointer; /* Indicate it's clickable */
+    width: 22px; /* שינוי: הגדלתי את גודל תיבת הסימון */
+    height: 22px; /* שינוי: הגדלתי את גודל תיבת הסימון */
+}
+
+.terms-label a {
+    color: #007bff; /* Blue color for the link */
+    text-decoration: none; /* Remove underline */
+    margin-right: 5px; /* שינוי: רווח מעט גדול יותר לפני טקסט הקישור */
+}
+
+.terms-label a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Styling for the Sign Up button */
+#AddToPlayerBase {
+    background-color: #87cefa; /* צבע כפתור תכלת בהיר */
+    color: white; /* White text */
+    padding: 16px 30px; /* שינוי: הגדלתי משמעותית את הריפוד של הכפתור */
+    border: none; /* No border */
+    border-radius: 6px; /* Rounded corners */
+    font-size: 1.3em; /* שינוי: הגדלתי את גודל הכתב בכפתור */
+    cursor: pointer; /* Indicate it's clickable */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    margin-top: 25px; /* שינוי: הגדלתי את הרווח מעל הכפתור */
+}
+
+/* Hover effect for the button */
+#AddToPlayerBase:hover {
+    background-color: #6a9ac9; /* תכלת כהה יותר בריחוף */
+}
+
