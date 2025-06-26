@@ -23,19 +23,20 @@ function sendMessage() {
   const text = chatInput.value.trim();
   if (!text) return;
 
-  const messageDiv = document.createElement("div");
+  messageDiv = document.createElement("messageDiv");
   messageDiv.className = "message";
   messageDiv.innerHTML = `
     <strong>${currentPlayer.name}: </strong> ${text}
     <button class="report-btn">דווח</button>
-  `;
+  `};
 
   // דיווח
-  const reportBtn = messageDiv.querySelector(".report-btn");
-  reportBtn.addEventListener("click", () => {
-    if (isOffensive(text)) {
+const reportBtn = messageDiv.querySelector(".report-btn");
+reportBtn.addEventListener("click", () => {
+  if (isOffensive(text)) {
+    const confirmed = confirm("האם אתה בטוח שברצונך לדווח?");
+    if (confirmed) {
       alert("תגובה פוגענית! מורידים מוניטין לשחקן.");
-            // window.location.href = 'report.html';
       currentPlayer.reputation-- || 
       players == JSON.parse(localStorage.getItem("players")) || [];
       players[0].reputation--;
@@ -44,14 +45,14 @@ function sendMessage() {
       renderPlayers();
     } else {
       alert(" התגובה לא פוגענית לפי הבדיקה, תוכל לדווח בכל זאת.");
-            window.location.href = 'report.html';
     }
-  });
+  }
+});
 
-  messagesDiv.appendChild(messageDiv);
-  chatInput.value = "";
-  messagesDiv.scrollTop = messagesDiv.scrollHeight;
-}
+messagesDiv.appendChild(messageDiv);
+chatInput.value = "";
+messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
 
 // sendBtn.addEventListener("click", sendMessage);
 
