@@ -36,7 +36,11 @@ function sendMessage() {
     if (isOffensive(text)) {
       alert("תגובה פוגענית! מורידים מוניטין לשחקן.");
             // window.location.href = 'report.html';
-      currentPlayer.reputation--;
+      currentPlayer.reputation-- || 
+      players == JSON.parse(localStorage.getItem("players")) || [];
+      players[0].reputation--;
+      localStorage.setItem("players", JSON.stringify(players));
+
       renderPlayers();
     } else {
       alert(" התגובה לא פוגענית לפי הבדיקה, תוכל לדווח בכל זאת.");
