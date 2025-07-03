@@ -16,7 +16,7 @@
 #show-login {
   padding: 12px 20px;
   font-size: 16px;
-  background-color: #007bff;
+  background-color: #083e78;
   color: white;
   border: none;
   border-radius: 8px;
@@ -52,6 +52,7 @@ a:hover{
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
+  margin-top: 130px;
 }
 
 .SignBox h2 {
@@ -134,4 +135,7 @@ a:hover{
 #centerpagelogin{
   display: flex;
   justify-content: center;
+}
+#addToPlayerBase{
+  margin-bottom: 12px;
 }

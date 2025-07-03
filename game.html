@@ -1,0 +1,73 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="./" />
+  <link rel="stylesheet" href="./css/Game+Chat.css">
+  <link rel="stylesheet" href="./css/header+footer.css">
+  <title>game & chat</title>
+</head>
+
+  <div id="headerplace"></div>
+
+  <!-- Chat -->
+  <div id="chat">
+  
+
+    
+ <div id="messagesDiv"></div>
+    <input class="buttonmasage" type="text" id="chatInput" placeholder="הקלד הודעה..." />
+    <button class="buttonmasage" id="sendBtn">שלח</button>
+    
+  </div>
+
+  <!-- Game Area -->
+  <div class="GameBox">
+    <div class="healthbar-container">
+      <div class="healthbar" id="p1Health"></div>
+      <div class="healthbar" id="p2Health"></div>
+    </div>
+
+    <!-- Canvas and Moves Button Side by Side -->
+    <div class="canvas-wrapper">
+      <canvas id="myCanvas" width="1052" height="500"></canvas>
+
+      <div class="moves-panel">
+        <button id="toggleMovesBtn">Show Moves</button>
+
+
+
+
+        <!-- this button so there is no error, there is no other way to solve this because 2 html use the same js-->
+         <button id="cnfrmbtn" class="buttonsign"></button>
+        <!-- dummy buttons -->
+        <button id="cnfrmbtn"></button>
+        <button id="AddToPlayerBaseBtn">Sign Up</button>
+
+        <!-- Moves Box -->
+        <div class="movesBox" id="movesBox" style="display: none;">
+          <h1 class="title">Player 1: WASD | G: כדור | H: מכה מיוחדת [כדור גדול]</h1>
+          <h1>Player 2: ← ↑ → ↓ | L: כדור | K: מכה מיוחדת [מהירות יריה מוגברת]</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footerplace"></div>
+
+ 
+
+
+
+  <script src="./js/header.js"></script>
+    <script src="./js/footer.js"></script>
+  <script src="./js/chat.js"></script>
+  <script src="./js/data.js"></script>
+  <script src="./js/script.js"></script>
+  <script src="./js/game.js"></script>
+
+ 
+
+</body>
+</html>

@@ -46,7 +46,10 @@ pre {
     box-sizing: border-box;
     font-size: 22px;
     font-family: unset;
+        color: antiquewhite;
+    text-align: center;
 }
+
 
 #pre1 {
    background-color: #fff;

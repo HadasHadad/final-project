@@ -1,10 +1,11 @@
 .mail{
   position: relative;
-  right: 20px;
-  top: 200px;
-  padding: 8px;
+     right: 519px;
+    top: 69px;
+  padding: 58px;
   background-color: rgb(252, 252, 252);
-  border: solid black 1px
+  border: solid black 1px;
+  width: fit-content ;
   
 }
 .help{
@@ -26,5 +27,14 @@ body{
 }
 .contact{
   position: relative;
-  top: 230px;
+     top: 47px;
+    right: 715px;
+}
+.help-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mar-right{
+  margin-right: 30px;
 }

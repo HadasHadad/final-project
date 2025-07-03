@@ -1,0 +1,59 @@
+
+  
+document.addEventListener("DOMContentLoaded", () => {
+  const current = JSON.parse(localStorage.getItem("CurrentlyloggedIn"));
+  const  stats = document.getElementById("playerForm1")
+  const  restrictions = document.getElementById("playerForm2")
+const  playerRep = document.getElementById("reputation")
+ 
+
+
+  const greetingDiv = document.getElementById('greeting');
+
+  if (!current) {
+   
+    window.location.href = "./Log-in_Page.html";
+    return;
+  }
+  else{
+
+    greetingDiv.innerHTML = `שלום ${current.name}`;
+    stats.innerHTML=`נצחונות: ${current.gameWon} <br> הפסדים: ${current.gameLost}`
+   playerRep.innerHTML=`מוניטין: ${current.reputation}`
+
+const num = 2;
+
+  if (num <= 2 ){
+    restrictions.innerHTML = `    20%   חיים   <span class= "resX">X</span>   <br> 
+     10 שניות המתנה למכה מיוחדת  <span class= "resX">X</span>   <br> 
+      גובה ורוחב גוף גדולים פי 9   <span class= "resX">X</span>   <br> 
+
+    `
+  }
+  else if (current.reputation <= 4 ){
+     restrictions.innerHTML = `    40%   חיים   <span class= "resX">X</span>   <br> 
+     9 שניות המתנה למכה מיוחדת  <span class= "resX">X</span>   <br> 
+      גובה ורוחב גוף גדולים פי 1.75   <span class= "resX">X</span>   <br> 
+
+    `
+  }
+  else if (current.reputation <= 6 ){
+      restrictions.innerHTML = `    20%   חיים   <span class= "resX">X</span>   <br> 
+     8 שניות המתנה למכה מיוחדת  <span class= "resX">X</span>   <br> 
+      גובה ורוחב גוף גדולים פי 1.5   <span class= "resX">X</span>   <br> 
+
+    `
+  }
+  else if (current.reputation <= 8 ){
+      restrictions.innerHTML = `    20%   חיים   <span class= "resX">X</span>   <br> 
+     6 שניות המתנה למכה מיוחדת  <span class= "resX">X</span>   <br> 
+      גובה ורוחב גוף גדולים פי 1.1   <span class= "resX">X</span>   <br> 
+
+    `
+  }
+  
+   
+  }
+}
+  
+);

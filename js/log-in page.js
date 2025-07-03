@@ -29,7 +29,7 @@ if (userFound) {
   localStorage.setItem("loggedIn", "true");
   localStorage.setItem("currentUser", userFound.name);
   localStorage.setItem("CurrentlyloggedIn", JSON.stringify(userFound));
-  window.location.href = "/index.html";
+  window.location.href = "./index.html";
 }
 else {
     timesClicked++;

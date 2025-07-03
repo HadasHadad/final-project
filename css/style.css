@@ -30,7 +30,7 @@ body {
     position: relative;
     top: 6px;
     padding-right: 42px;
-    color: rgb(225, 232, 235);
+    
   }
 
 
@@ -64,7 +64,7 @@ a{
 }
 
 #pre1 {
-  background-color: #fff;
+  background-color: #0b0b35;
    padding: 20px;
    border-radius: 8px;
    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -77,13 +77,15 @@ a{
    left: 8px;
   text-indent: 50px;
     text-align: center;
-  text-align: justify;
+ color: antiquewhite;
   letter-spacing: 3px;
    
 }
 
 #playbutton, #info {
-  display: inline-block;
+   display: flex;
+  justify-content: center; 
+  align-items: center;  
   background-color: #03a9f4; 
   color: rgb(14, 4, 4);
   padding: 10px 20px;
@@ -152,4 +154,14 @@ padding: 1px;
   overflow-y: scroll;
   border: 1px solid #ccc;
   margin-bottom: 10px;
+}
+.main-btn-img-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.main-img{
+      border-radius: 95px;
+    border: 4px dashed #481111;
+    transform: rotate(-10deg);
 }

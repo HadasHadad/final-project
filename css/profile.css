@@ -150,6 +150,9 @@ body {
     position: relative;
     top: -99px;
 }
-.red{
- color: red;
+
+.resX{
+    color: red;
+    font-weight: 700;
+    font-size: larger;
 }

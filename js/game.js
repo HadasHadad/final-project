@@ -46,38 +46,45 @@ function updateGameStats(winnerIndex, loserIndex) {
   localStorage.setItem("profileInfo", JSON.stringify(profileInfo));
 }
 
-// Player 1 restriction 
-if (players[0].reputation >= 9) {
-  p1Health = 100;
-  powerCooldown = 5000;
-  p1BodyHeight = 100;
-  p1BodyWidth = 100;
-} else if (players[0].reputation >= 8) {
-  p1Health = 90;
-  powerCooldown = 6000;
-  p1BodyHeight = 110;
-  p1BodyWidth = 110;
-} else if (players[0].reputation >= 6) {
-  p1Health = 80;
-  powerCooldown = 7000;
-  p1BodyHeight = 125;
-  p1BodyWidth = 125;
-} else if (players[0].reputation >= 4) {
-  p1Health = 60;
-  powerCooldown = 8000;
-  p1BodyHeight = 150;
-  p1BodyWidth = 150;
-} else if (players[0].reputation >= 2) {
-  p1Health = 40;
-  powerCooldown = 9000;
-  p1BodyHeight = 175;
-  p1BodyWidth = 175;
-} else {
-  p1Health = 20;
-  powerCooldown = 10000;
-  p1BodyHeight = 900;
-  p1BodyWidth = 900;
+
+const currentPlayer = JSON.parse(localStorage.getItem("CurrentlyloggedIn"));
+
+if (currentPlayer && currentPlayer.reputation !== undefined) {
+  const rep = currentPlayer.reputation;
+
+  if (rep >= 9) {
+    p1Health = 100;
+    powerCooldown = 5000;
+    p1BodyHeight = 100;
+    p1BodyWidth = 100;
+  } else if (rep >= 8) {
+    p1Health = 90;
+    powerCooldown = 6000;
+    p1BodyHeight = 110;
+    p1BodyWidth = 110;
+  } else if (rep >= 6) {
+    p1Health = 80;
+    powerCooldown = 7000;
+    p1BodyHeight = 125;
+    p1BodyWidth = 125;
+  } else if (rep >= 4) {
+    p1Health = 60;
+    powerCooldown = 8000;
+    p1BodyHeight = 150;
+    p1BodyWidth = 150;
+  } else if (rep >= 2) {
+    p1Health = 40;
+    powerCooldown = 9000;
+    p1BodyHeight = 175;
+    p1BodyWidth = 175;
+  } else {
+    p1Health = 20;
+    powerCooldown = 10000;
+    p1BodyHeight = 900;
+    p1BodyWidth = 900;
+  }
 }
+
 
 // Player 2 restriction 
 if (players[1].reputation >= 9) {
