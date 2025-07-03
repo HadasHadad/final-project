@@ -80,8 +80,8 @@ if (currentPlayer && currentPlayer.reputation !== undefined) {
   } else {
     p1Health = 20;
     powerCooldown = 10000;
-    p1BodyHeight = 900;
-    p1BodyWidth = 900;
+    p1BodyHeight = 200;
+    p1BodyWidth = 200;
   }
 }
 
