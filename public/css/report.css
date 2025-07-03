@@ -5,7 +5,7 @@ justify-content: center;
    }
    body{
       direction: rtl;
-      max-width: 600px;
+      /* max-width: 600px; */
       margin: auto;
       padding: 20px;
     }
@@ -13,6 +13,19 @@ justify-content: center;
       width: 100%;
       padding: 8px;
     }
+<<<<<<< HEAD
 body{
    background-color: rgb(109 187 243);
 }
+=======
+#max-width600pxreportpage{
+      direction: rtl;   
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+}
+#flex-center_button_report{
+      display: flex;
+      justify-content: center;
+}
+>>>>>>> main

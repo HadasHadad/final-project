@@ -1,13 +1,10 @@
 const canvas = document.getElementById("myCanvas"); 
 const ctx = canvas.getContext("2d");
 
-//the number is to signal which player 
 let gameswon1 = 0;
 let gameswon2 = 0;
 let gameslost1 = 0;
-let  gameslost2 = 0;
-
-
+let gameslost2 = 0;
 
 const headSize = 40;
 let p1BodyWidth = 100, p1BodyHeight = 100;
@@ -40,9 +37,17 @@ const fastMultiplier = 3;
 let rapidFireStart = 0;
 const rapidFireDuration = 1500;
 
+function updateGameStats(winnerIndex, loserIndex) {
+  let profileInfo = JSON.parse(localStorage.getItem("profileInfo") || "[]");
+
+  if (profileInfo[winnerIndex]) profileInfo[winnerIndex].gameWon++;
+  if (profileInfo[loserIndex]) profileInfo[loserIndex].gameLost++;
+
+  localStorage.setItem("profileInfo", JSON.stringify(profileInfo));
+}
+
 // Player 1 restriction 
 if (players[0].reputation >= 9) {
-  // No restriction for reputation 9 and 10
   p1Health = 100;
   powerCooldown = 5000;
   p1BodyHeight = 100;
@@ -67,7 +72,7 @@ if (players[0].reputation >= 9) {
   powerCooldown = 9000;
   p1BodyHeight = 175;
   p1BodyWidth = 175;
-} else { // reputation 0 or 1
+} else {
   p1Health = 20;
   powerCooldown = 10000;
   p1BodyHeight = 900;
@@ -169,7 +174,6 @@ function move(event) {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  // Calculate head positions so heads are always centered over the body
   const p1HeadX = p1x + (p1BodyWidth / 2) - (headSize / 2);
   const p1HeadY = p1y - headSize;
 
@@ -237,8 +241,7 @@ function updateBullets() {
       if (p2Health === 0 && !gameOver) {
         gameOver = true;
         winner = "Player 1";
-        gameswon1++;
-        gameslost2++;
+        updateGameStats(0, 1);
       }
     } else if (p1BulletX > canvas.width) {
       p1BulletX = null;
@@ -264,8 +267,7 @@ function updateBullets() {
       if (p1Health === 0 && !gameOver) {
         gameOver = true;
         winner = "Player 2";
-        gameswon2++;
-        gameslost1++;
+        updateGameStats(1, 0);
       }
     } else if (p2BulletX + bulletSize < 0) {
       p2BulletX = null;
@@ -299,7 +301,6 @@ function gameLoop() {
 
 gameLoop();
 
-
 document.addEventListener('DOMContentLoaded', () => {
   const toggleBtn = document.getElementById('toggleMovesBtn');
   const movesBox = document.getElementById('movesBox');
@@ -310,5 +311,3 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleBtn.textContent = isHidden ? 'Hide Moves' : 'Show Moves';
   });
 });
-
-console.log(gameslost1)

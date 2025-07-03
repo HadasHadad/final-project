@@ -131,3 +131,7 @@ a:hover{
 #captcha-container {
   display: none;
 }
+#centerpagelogin{
+  display: flex;
+  justify-content: center;
+}

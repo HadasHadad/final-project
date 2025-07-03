@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    
-  
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="./">
     <link rel="stylesheet" href="/public/css/report.css">
-     <link rel="stylesheet" href="/public/css/nav.css">
+    <link rel="stylesheet" href="/public/css/nav.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/header+footer.css">
     <title>טופס דיווח</title>
 </head>
 <body>
-    <div id="headerplace"></div>
+    <div id="headerplace">
+        <div id="img-get"></div>
+    </div>
+    <main id="max-width600pxreportpage">
     <h1 class="title">טופס דיווח</h1>
-    <nav id="main-nav"> </nav>
+    <!-- <nav id="main-nav"> </nav> -->
     <p>שם מלא:</p>
 <input type="text">
 <p>מהי סוג ההפרה:</p><br>
@@ -43,7 +46,14 @@
 <p>הזן מספר טלפון:</p>
     <input type="text" placeholder="לא חובה">
     <br><br><br>
+    <div id="flex-center_button_report">
     <button class="buttonreport">דווח</button>
+    </div>
+ </main>
+     <br>
+<div id="footerplace"></div>
+
+    <script src="/public/js/footer.js"></script>
     <script src="/public/js/nav.js"></script>
         <script src="/public/js/header.js"></script>
 </body>

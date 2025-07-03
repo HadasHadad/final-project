@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   let current = JSON.parse(localStorage.getItem("UserInfo"))
-  console.log(current.name)
+  console.log(current.gameWon)
   // Load from localStorage or use default
   let storedData = localStorage.getItem('profileInfo');
   let profileInfo;
@@ -29,7 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Show greeting for first player
   const greetingDiv = document.getElementById('greeting');
   if (profileInfo && profileInfo.length > 0) {
-    greetingDiv.innerHTML = `שלום ${current.name}, זכית ${profileInfo[0].gameWon} והפסדת ${profileInfo[0].gameLost}`;
+    greetingDiv.innerHTML = `שלום ${current.name}`;
+    playerForm1.innerHTML=`נצחונות: ${profileInfo[0].gameWon} <br> הפסדים: ${profileInfo[0].gameLost}`
+    reputation.innerHTML=`מוניטין: ${profileInfo.reputation}`
+   
   }
 
   // Show profile info for all players
@@ -38,13 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
     profileContainer.style.display = 'block';
     profileContainer.innerHTML = '';
 
-    profileInfo.forEach(player => {
-      const playerDiv = document.createElement('div');
-      playerDiv.innerHTML = `
-        <h3>${player.name}</h3>
-        <p>יש לך ${player.gameWon} נצחונות, ${player.gameLost} הפסדים, ו- ${player.reputation} נקודות מוניטין.</p>
-      `;
-      profileContainer.appendChild(playerDiv);
-    });
+    // profileInfo.forEach(player => {
+    //   const playerDiv = document.createElement('div');
+    //   playerDiv.innerHTML = `
+    //     <h3>${player.name}</h3>
+    //   <p>יש לך ${player.gameWon} נצחונות, ${player.gameLost} הפסדים, ו- ${player.reputation} נקודות מוניטין.</p>
+    //   `;
+    //   profileContainer.appendChild(playerDiv);
+    // });
   }
 });

@@ -21,22 +21,17 @@ function login(event) {
     return;
   }
 
-  const userFound = players.some(player => 
-    player.name === username && player.password === password
-  );
+ const userFound = players.find(player => 
+  player.name === username && player.password === password
+);
 
-  if (userFound) {
-    message.style.color = "green";
-    message.textContent = "Login successful!";
-    localStorage.setItem("CurrentlyloggedIn", JSON.stringify(userFound));
-    localStorage.setItem("loggedIn", "true");
-    localStorage.setItem("currentUser", JSON.stringify(userFound));
-
-    localStorage.setItem("currentUser", username);
-    setTimeout(() => {
-      window.location.href = "./index.html";
-    }, 1000);
-  } else {
+if (userFound) {
+  localStorage.setItem("loggedIn", "true");
+  localStorage.setItem("currentUser", userFound.name);
+  localStorage.setItem("CurrentlyloggedIn", JSON.stringify(userFound));
+  window.location.href = "/index.html";
+}
+else {
     timesClicked++;
     message.style.color = "#d9534f";
     message.textContent = "Invalid username or password.";

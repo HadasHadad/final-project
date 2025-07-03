@@ -6,20 +6,25 @@
   <base href="./" />
   <link rel="stylesheet" href="/public/css/profile.css" />
   <link rel="stylesheet" href="/public/css/nav.css" />
+  <link rel="stylesheet" href="/public/css/header+footer.css">
   <title>פרופיל שחקן</title>
 </head>
+ <nav id="main-nav"></nav>
 <body class="fashion">
 
-  <div id="headerplace"></div>
+  <div id="headerplace">
+    <div id="img-get"></div>
+  </div>
 
   <!-- Greeting will go here -->
   <div id="greeting"></div>
 
   <form id="playerForm">
     <h1>סטטיסטיקה:</h1>
+    <div id="playerForm1"></div>
     <!-- removed static stats -->
-
-    <h1>מוניטין:</h1>
+     <h1 id="reputation">מוניטין:</h1>
+    <div id="playerForm2"></div>
     <!-- removed static reputation -->
   </form>
 
@@ -27,7 +32,7 @@
 
   <footer class="footercopyright">
     <footer class="footer">
-      <a class="footer" href="/public/index.html">home page</a>
+      <a class="footer" href="/index.html">home page</a>
       <a class="footer" href="/public/about.html">about</a>
       <a class="footer" href="/public/Contactandhelp.html">help/contact</a>
       <a class="footer" href="/public/Sign-Up_Page.html">sign up/sign in</a>
@@ -40,6 +45,7 @@
   <script src="/public/js/header.js"></script>
   <script src="/public/js/profile.js"></script>
   <script src="/public/js/game.js"></script>
+  <script src="/public/js/footer.js"></script>
 
 </body>
 </html>
