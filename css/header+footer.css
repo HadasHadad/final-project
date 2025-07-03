@@ -1,0 +1,54 @@
+#headerplace{
+          justify-content: space-between;
+        align-items: first baseline;
+        background-color: white;
+        height: 160px;
+        width: 100%;
+        font-family: Arial, sans-serif;
+        
+}
+a{
+color: white;
+text-decoration: none;
+}
+a:hover {
+    color: orange;
+    text-decoration: none;
+}
+.nav-a{
+       display: inline-block;
+    background-color: #03a9f4;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+
+}
+
+
+#footerplace{
+  font-family: Arial, sans-serif;
+}
+#footer{
+  margin-top: 15px;
+background-color: white;
+  text-align: center;
+      display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#a-footer a{
+  color: white;
+}
+#a-footer a:hover {
+    color: orange;
+}
+#stylefooterinhelppage{
+  width: 100%;
+}
+.game-btn{
+      font-size: 14px;
+    font-weight: 500;
+}

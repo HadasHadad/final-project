@@ -1,0 +1,40 @@
+.mail{
+  position: relative;
+     right: 519px;
+    top: 69px;
+  padding: 58px;
+  background-color: rgb(252, 252, 252);
+  border: solid black 1px;
+  width: fit-content ;
+  
+}
+.help{
+  position: relative;
+  right: 25px;
+  bottom: 220px;
+  color: white;
+  font-size: 40px;
+}
+
+body{
+  background-color: rgb(157, 172, 188);
+}
+.l{
+  position: relative;
+  bottom: 199px;
+  right: 40px;
+  color: rgb(255, 253, 139);
+}
+.contact{
+  position: relative;
+     top: 47px;
+    right: 715px;
+}
+.help-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mar-right{
+  margin-right: 30px;
+}

@@ -1,0 +1,167 @@
+html
+{
+color: 2.49.28;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+ .container {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+
+.header{
+    display: flex
+    ;
+        justify-content: space-between;
+        align-items: first baseline;
+        background-color: rgb(72, 77, 146);
+        height: 144px;
+  }
+  .title{
+    position: relative;
+    top: 6px;
+    padding-right: 42px;
+    
+  }
+
+
+  .player {
+    margin-bottom: 10px;
+  }
+  .low-reputation {
+    color: red;
+  }
+  
+a{
+      display: inline-block;
+    background-color: #03a9f4;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+  
+
+
+
+.nav{
+  padding-left: 42px;
+    position: relative;
+    top: 6px;
+  color: rgb(42, 145, 150); 
+
+}
+
+#pre1 {
+  background-color: #0b0b35;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   margin-bottom: 20px;
+   white-space: pre-wrap;
+   line-height: 1.6;
+   box-sizing: border-box;
+   font-size: 22px;
+   font-family: unset;
+   left: 8px;
+  text-indent: 50px;
+    text-align: center;
+ color: antiquewhite;
+  letter-spacing: 3px;
+   
+}
+
+#playbutton, #info {
+   display: flex;
+  justify-content: center; 
+  align-items: center;  
+  background-color: #03a9f4; 
+  color: rgb(14, 4, 4);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 10px;
+  transition: background-color 0.3s ease;
+left:8px;
+}
+
+  .player {
+    margin-bottom: 10px;
+  }
+  .low-reputation {
+    color: red;
+  }
+
+.GameBox{
+    width: 1072px;
+    height: 545px;
+    margin-right: 320px;
+    border: 3px solid black;
+    margin-top:-36px;
+    background-color: gray;
+}
+.GameBox {
+  width: 1052px;
+  background-color: gray;
+  border: black 3px solid;
+  margin-left: 300px;
+
+}
+
+.healthbar-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding:0 20px; /* add spacing from canvas border if needed */
+}
+
+.healthbar {
+  width: 500px;
+  height: 30px;
+  border: black 2px solid;
+  background-color: green;
+}
+
+.buttondiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+}
+.buttonmasage{
+
+  margin-top: 285px; /* מזיז את האלמנט למטה */
+padding: 1px;
+
+}
+
+
+#messages {
+  background-color: white;
+  padding: 10px;
+  height: 200px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+.main-btn-img-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.main-img{
+      border-radius: 95px;
+    border: 4px dashed #481111;
+    transform: rotate(-10deg);
+}

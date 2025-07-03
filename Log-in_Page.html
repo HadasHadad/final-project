@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base href="./">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="./css/log-in page.css" />
+
+</head>
+<body style="background-color: rgb(25 25 70);">
+  
+ 
+  <div id="centerpagelogin">
+    <div class="SignBox">
+      <h2>Login</h2>
+       <nav id="main-nav"> </nav>
+      <form onsubmit="login(event)">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button id="AddToPlayerBase" type="submit">Login</button>
+      </form>
+
+      <a href="./Sign-Up_Page.html">
+        <button id="cnfrmbtn">Don't have an account? Sign up</button>
+      </a>
+     
+  
+
+
+
+
+      <div id="message"></div>
+
+      <div id="captcha-container">
+        <label class="terms-label">
+          <input type="checkbox" id="captcha" />
+          I am not a robot
+        </label>
+      </div>
+    </div>
+  </div>
+  </div>
+<div dir="rtl" id="footerplace"></div>
+
+  
+  <script src="./js/data.js"></script>
+
+  <script src="./js/log-in page.js"></script>
+  
+
+</body>
+</html>
+
