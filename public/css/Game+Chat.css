@@ -11,16 +11,25 @@
   width: 1052px;
   background-color: gray;
   border: black 3px solid;
-  margin-left: 300px;
-  margin-top: -59px;
+
+      margin-left: 347px;
+    margin-top: -33px;
+
+  margin-left:358px;
+  margin-top: -38px;
+
+  margin-left:358px;
+  margin-top: -38px;
+
 
 }
 
 .healthbar-container {
   display: flex;
+
   justify-content: space-between;
-  margin-bottom: 10px;
-  padding: 0 20px;
+  margin-bottom:  10px;
+  padding:   0 20px;
   /* add spacing from canvas border if needed */
 }
 
@@ -48,8 +57,18 @@
 #chat {
   margin-top: 20px;
   width: 285px;
+
+    height: 32px;
+    position: relative;
+    left: 32px;
+
   height: 35px;
+  position: relative;
+  left: 40px;
+
+
 }
+
 
 .header {
   display: flex;
@@ -57,7 +76,13 @@
   align-items: first baseline;
 
   background-color: rgb(72, 77, 146);
-  height: 155px;
+
+  height: 57px;
+  position: relative;
+left: 4px;
+
+  height: 92px;
+
 
 }
 
@@ -75,4 +100,9 @@
   }
   .report-btn{
     background-color: red;
+  }
+
+  .navbar-brand{
+display: inline;
+
   }

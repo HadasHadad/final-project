@@ -1,47 +1,71 @@
-let inputarea = document.getElementById("inputarea");
-let inputarea1 = document.getElementById("inputarea1");
-let cnfrmbtn = document.getElementById("cnfrmbtn");
-let AddToPlayerBaseBtn = document.getElementById("AddToPlayerBaseBtn");
+// let players = JSON.parse(localStorage.getItem("players")) || [];
 
-AddToPlayerBaseBtn.disabled = true;
+// let inputarea = document.getElementById("inputarea");
+// let inputarea1 = document.getElementById("inputarea1");
+// let cnfrmbtn = document.getElementById("cnfrmbtn");
+// let AddToPlayerBaseBtn = document.getElementById("AddToPlayerBaseBtn");
 
-let username;
-let password1;
+// AddToPlayerBaseBtn.disabled = true;
 
-function Registration() {
-  username = inputarea.value.trim();
-  password1 = inputarea1.value.trim();
+
+// let username;
+// let password1;
+
+// function Registration() {
+//   username = inputarea.value.trim();
+//   password1 = inputarea1.value.trim();
   
-  if (username && password1) {
-    AddToPlayerBaseBtn.disabled = false;
-  } else {
-    AddToPlayerBaseBtn.disabled = true;
-  }
-}
+//   if (username && password1) {
+//     AddToPlayerBaseBtn.disabled = false;
+//   } else {
+//     AddToPlayerBaseBtn.disabled = true;
+//   }
+// }
 
-cnfrmbtn.addEventListener("click", Registration);
+// cnfrmbtn.addEventListener("click", Registration);
 
-function AddToPlayerBase(username, password1) {
+// function AddToPlayerBase(username, password1) {
+//   const IdUser = players.length ? players[players.length - 1].id + 1 : 1;
 
-  const IdUser = players.length ? players[players.length - 1].id + 1 : 1;
+//   const newPlayer = {
+//     id: IdUser,
+//     name: username,
+//     password: password1,
+//     reputation: 10,
+//     gameWon: 0,
+//     gameLost: 0
+//   };
 
-  const newPlayer = { id: IdUser, name: username, password: password1, reputation: 10 };
-  players.push(newPlayer);
+//   players.push(newPlayer);
+//   localStorage.setItem("players", JSON.stringify(players));
+
+//   localStorage.setItem("loggedIn", "true");
+//   localStorage.setItem("CurrentlyloggedIn", JSON.stringify(newPlayer));
+//   localStorage.setItem("currentUser", newPlayer.name);
 
 
-  localStorage.setItem("players", JSON.stringify(players));
+//   AddToPlayerBaseBtn.disabled = true;
+//   inputarea.value = "";
+//   inputarea1.value = "";
 
-  console.log("New player added:", newPlayer);
-  console.log("All players:", players);
+// console.log("About to redirect...");
+// console.log("Current location:", window.location.href);
+// }
+
+// AddToPlayerBaseBtn.addEventListener("click", () => AddToPlayerBase(username, password1));
 
 
-  AddToPlayerBaseBtn.disabled = true;
+// const user = JSON.parse(localStorage.getItem("CurrentlyloggedIn"));
 
+// if (user) {
+//   console.log("User name:", user.name);
+//   console.log("Reputation:", user.reputation);
+// }
 
   inputarea.value = "";
   inputarea1.value = "";
 
- window.location.href = "./index.html";
+ window.location.href = "../index.html";
 }
 
 AddToPlayerBaseBtn.addEventListener("click", () => AddToPlayerBase(username, password1));

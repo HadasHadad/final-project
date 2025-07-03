@@ -30,7 +30,7 @@ body {
     position: relative;
     top: 6px;
     padding-right: 42px;
-    color: rgb(122, 213, 249);
+    color: rgb(225, 232, 235);
   }
 
 
@@ -75,14 +75,17 @@ a{
    font-size: 22px;
    font-family: unset;
    left: 8px;
-
+  text-indent: 50px;
+    text-align: center;
+  text-align: justify;
+  letter-spacing: 3px;
    
 }
 
 #playbutton, #info {
   display: inline-block;
   background-color: #03a9f4; 
-  color: white;
+  color: rgb(14, 4, 4);
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 5px;
