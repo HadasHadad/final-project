@@ -62,10 +62,10 @@
 //   console.log("Reputation:", user.reputation);
 // }
 
-  inputarea.value = "";
-  inputarea1.value = "";
+  // inputarea.value = "";
+//   inputarea1.value = "";
 
- window.location.href = "./index.html";
+//  window.location.href = "./index.html";
 
 
-AddToPlayerBaseBtn.addEventListener("click", () => AddToPlayerBase(username, password1));
+// AddToPlayerBaseBtn.addEventListener("click", () => AddToPlayerBase(username, password1));
