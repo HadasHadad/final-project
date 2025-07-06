@@ -21,7 +21,8 @@ const bulletSpeed = 20;
 let p1BulletX = null, p1BulletY = null;
 let p2BulletX = null, p2BulletY = null;
 
-let p1Health = 100, p2Health = 100;   
+let p1Health = 100, p2Health = 100;
+let p1MaxHealth = 100, p2MaxHealth = 100; // Store max health for percentage calculation
 
 let gameOver = false;
 let winner = "";
@@ -46,7 +47,6 @@ function updateGameStats(winnerIndex, loserIndex) {
   localStorage.setItem("profileInfo", JSON.stringify(profileInfo));
 }
 
-
 const currentPlayer = JSON.parse(localStorage.getItem("CurrentlyloggedIn"));
 
 if (currentPlayer && currentPlayer.reputation !== undefined) {
@@ -54,69 +54,41 @@ if (currentPlayer && currentPlayer.reputation !== undefined) {
 
   if (rep >= 9) {
     p1Health = 100;
+    p1MaxHealth = 100;
     powerCooldown = 5000;
     p1BodyHeight = 100;
     p1BodyWidth = 100;
   } else if (rep >= 8) {
     p1Health = 90;
+    p1MaxHealth = 90;
     powerCooldown = 6000;
     p1BodyHeight = 110;
     p1BodyWidth = 110;
   } else if (rep >= 6) {
     p1Health = 80;
+    p1MaxHealth = 80;
     powerCooldown = 7000;
     p1BodyHeight = 125;
     p1BodyWidth = 125;
   } else if (rep >= 4) {
     p1Health = 60;
+    p1MaxHealth = 60;
     powerCooldown = 8000;
     p1BodyHeight = 150;
     p1BodyWidth = 150;
   } else if (rep >= 2) {
     p1Health = 40;
+    p1MaxHealth = 40;
     powerCooldown = 9000;
     p1BodyHeight = 175;
     p1BodyWidth = 175;
   } else {
     p1Health = 20;
+    p1MaxHealth = 20;
     powerCooldown = 10000;
     p1BodyHeight = 200;
     p1BodyWidth = 200;
   }
-}
-
-
-// Player 2 restriction 
-if (players[1].reputation >= 9) {
-  p2Health = 100;
-  fastCooldown = 5000;
-  p2BodyHeight = 100;
-  p2BodyWidth = 100;
-} else if (players[1].reputation >= 8) {
-  p2Health = 90;
-  fastCooldown = 6000;
-  p2BodyHeight = 110;
-  p2BodyWidth = 110;
-} else if (players[1].reputation >= 6) {
-  p2Health = 80;
-  fastCooldown = 7000;
-  p2BodyHeight = 125;
-  p2BodyWidth = 125;
-} else if (players[1].reputation >= 4) {
-  p2Health = 60;
-  fastCooldown = 8000;
-  p2BodyHeight = 150;
-  p2BodyWidth = 150;
-} else if (players[1].reputation >= 2) {
-  p2Health = 40;
-  fastCooldown = 9000;
-  p2BodyHeight = 175;
-  p2BodyWidth = 175;
-} else {
-  p2Health = 20;
-  fastCooldown = 10000;
-  p2BodyHeight = 200;
-  p2BodyWidth = 200;
 }
 
 document.addEventListener("keydown", move);
@@ -226,8 +198,28 @@ function draw() {
     }
   }
 
-  document.getElementById("p1Health").style.width = `${p1Health * 5}px`;
-  document.getElementById("p2Health").style.width = `${p2Health * 5}px`;
+  // Update health bars and add percentage text
+  updateHealthBars();
+}
+
+function updateHealthBars() {
+  // Update health bar widths
+  const p1HealthBar = document.getElementById("p1Health");
+  const p2HealthBar = document.getElementById("p2Health");
+  
+  if (p1HealthBar) {
+    p1HealthBar.style.width = `${p1Health * 5}px`;
+    // Calculate and display percentage
+    const p1Percentage = Math.round((p1Health / p1MaxHealth) * 100);
+    p1HealthBar.textContent = `${p1Percentage}%`;
+  }
+  
+  if (p2HealthBar) {
+    p2HealthBar.style.width = `${p2Health * 5}px`;
+    // Calculate and display percentage
+    const p2Percentage = Math.round((p2Health / p2MaxHealth) * 100);
+    p2HealthBar.textContent = `${p2Percentage}%`;
+  }
 }
 
 function updateBullets() {
