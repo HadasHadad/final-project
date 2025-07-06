@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const reason = document.getElementById("reason").value.toLowerCase();
 
-    const offensiveWords = ["stupid", "idiot", "dumb", "poop", "fuck", "ass", "loser", "מטומטם"];
+    const offensiveWords = ["stupid", "idiot", "dumb", "poop", "fuck", "ass", "loser", "מטומטם","אידיוט","טיפש","פאק יו","תתאבד","טמבל"];
     let isOffensive = false;
 
     if (data && data.reportedMessage) {
