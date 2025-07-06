@@ -38,7 +38,7 @@ function createNav() {
     nav.innerHTML = `
       <a class= "nav-a" href="/index.html">בית</a>
        <a class= "nav-a" href="./about.html">אודות</a>
-      <a class = "game-btn nav-a" href="./game.html">🎮המשחק</a>
+      <a id="playButton" class = "game-btn nav-a" href="./game.html">🎮המשחק</a>
       <a  class= "nav-a" href="./contactandhelp.html">צור קשר</a>
       <a class= "nav-a" href="./profile.html">פרופיל שחקן</a>
       <a class= "nav-a" href="#" id="logout-link">התנתק</a>
@@ -47,7 +47,7 @@ function createNav() {
     nav.innerHTML = `
       <a class= "nav-a" href="/index.html">בית</a>
        <a class= "nav-a" href="./about.html">אודות</a>
-      <a class= "nav-a" href="./game.html">🎮המשחק</a>
+      <a id="playButton" class= "nav-a" href="./game.html">🎮המשחק</a>
       <a class= "nav-a" href="./contactandhelp.html">צור קשר</a>
         <a class= "nav-a" href="./Sign-Up_Page.html">הרשמה</a>
       <a class= "nav-a" href="./Log-in_Page.html">התחברות</a>
@@ -64,7 +64,7 @@ function createNav() {
   }
 
   
-  const playButton = document.getElementById("PlayButton");
+  const playButton = document.getElementById("playButton");
   if (playButton) {
     playButton.addEventListener("click", (e) => {
       e.preventDefault();
@@ -75,7 +75,10 @@ function createNav() {
       }
     });
   }
+
 }
+
+
 
 
 function logoutUser() {
