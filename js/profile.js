@@ -21,35 +21,42 @@ const  playerRep = document.getElementById("reputation")
     stats.innerHTML=`נצחונות: ${current.gameWon} <br> הפסדים: ${current.gameLost}`
    playerRep.innerHTML=`מוניטין: ${current.reputation}`
 
-     if (current.reputation <= 9 ){
+     if (current.reputation >= 9 ){
     restrictions.innerHTML = "אחלה מוניטין"
   }
 
-  else if (current.reputation <= 8 ){
+  else if (current.reputation >= 8 ){
     restrictions.innerHTML = `    90%   חיים   <span class= "resX">X</span>   <br> 
      6 שניות המתנה למכה מיוחדת  <span class= "resX">X</span>   <br> 
       גובה ורוחב גוף גדולים פי 1.1   <span class= "resX">X</span>   <br> 
 
     `
   }
-  else if (current.reputation <= 6 ){
+  else if (current.reputation >= 6 ){
      restrictions.innerHTML = `    80%   חיים   <span class= "resX">X</span>   <br> 
      7 שניות המתנה למכה מיוחדת  <span class= "resX">X</span>   <br> 
       גובה ורוחב גוף גדולים פי 1.25   <span class= "resX">X</span>   <br> 
 
     `
   }
-  else if (current.reputation <= 4 ){
+  else if (current.reputation >= 4 ){
       restrictions.innerHTML = `    60%   חיים   <span class= "resX">X</span>   <br> 
      8 שניות המתנה למכה מיוחדת  <span class= "resX">X</span>   <br> 
       גובה ורוחב גוף גדולים פי 1.5   <span class= "resX">X</span>   <br> 
 
     `
   }
-  else if (current.reputation <= 2 ){
+  else if (current.reputation >= 2 ){
       restrictions.innerHTML = `    40%   חיים   <span class= "resX">X</span>   <br> 
      9 שניות המתנה למכה מיוחדת  <span class= "resX">X</span>   <br> 
       גובה ורוחב גוף גדולים פי 1.75   <span class= "resX">X</span>   <br> 
+
+    `
+  }
+  else {
+      restrictions.innerHTML = `    20%   חיים   <span class= "resX">X</span>   <br> 
+     10 שניות המתנה למכה מיוחדת  <span class= "resX">X</span>   <br> 
+      גובה ורוחב גוף גדולים פי 2   <span class= "resX">X</span>   <br> 
 
     `
   }
