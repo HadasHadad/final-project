@@ -48,7 +48,7 @@ function createNav() {
       <a class= "nav-a" href="./index.html">בית</a>
        <a class= "nav-a" href="./about.html">אודות</a>
       <a class= "nav-a" href="./game.html">🎮המשחק</a>
-      <a class= "nav-a" href="./contactandhelp.html">צור קשר</a>
+      <a class= "nav-a" href="./ontactandhelp.html">צור קשר</a>
         <a class= "nav-a" href="./Sign-Up_Page.html">הרשמה</a>
       <a class= "nav-a" href="./Log-in_Page.html">התחברות</a>
     `;
