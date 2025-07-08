@@ -40,12 +40,12 @@ let rapidFireStart = 0;
 const rapidFireDuration = 1500;
 
 function updateGameStats(winnerIndex, loserIndex) {
-  let profileInfo = JSON.parse(localStorage.getItem("profileInfo") || "[]");
-
-  if (profileInfo[winnerIndex]) profileInfo[winnerIndex].gameWon++;
-  if (profileInfo[loserIndex]) profileInfo[loserIndex].gameLost++;
-
-  localStorage.setItem("profileInfo", JSON.stringify(profileInfo));
+  let profileInfo = JSON.parse(localStorage.getItem("CurrentlyloggedIn") || "[]");
+ 
+  if (winnerIndex===1) profileInfo.gameWon++;
+  if (loserIndex===1) profileInfo.gameLost++;
+ 
+  localStorage.setItem("CurrentlyloggedIn", JSON.stringify(profileInfo));
 }
 
 const currentPlayer = JSON.parse(localStorage.getItem("CurrentlyloggedIn"));
@@ -54,43 +54,46 @@ if (currentPlayer && currentPlayer.reputation !== undefined) {
   const rep = currentPlayer.reputation;
 
   if (rep >= 9) {
-    p1Health = 100;
-    p1MaxHealth = 100;
+    p2Health = 100;
     powerCooldown = 5000;
-    p1BodyHeight = 100;
-    p1BodyWidth = 100;
+    fastCooldown = 5000;
+    p2BodyHeight = 100;
+    p2BodyWidth = 100;
   } else if (rep >= 8) {
-    p1Health = 90;
-    p1MaxHealth = 90;
+    p2Health = 90;
     powerCooldown = 6000;
-    p1BodyHeight = 110;
-    p1BodyWidth = 110;
+    fastCooldown = 6000;
+    p2BodyHeight = 110;
+    p2BodyWidth = 110;
   } else if (rep >= 6) {
-    p1Health = 80;
-    p1MaxHealth = 80;
+    p2Health = 80;
     powerCooldown = 7000;
-    p1BodyHeight = 125;
-    p1BodyWidth = 125;
+    fastCooldown = 7000;
+    p2BodyHeight = 125;
+    p2BodyWidth = 125;
   } else if (rep >= 4) {
-    p1Health = 60;
-    p1MaxHealth = 60;
+    p2Health = 60;
     powerCooldown = 8000;
-    p1BodyHeight = 150;
-    p1BodyWidth = 150;
+    fastCooldown = 8000;
+    p2BodyHeight = 150;
+    p2BodyWidth = 150;
   } else if (rep >= 2) {
-    p1Health = 40;
-    p1MaxHealth = 40;
+    p2Health = 40;
     powerCooldown = 9000;
-    p1BodyHeight = 175;
-    p1BodyWidth = 175;
+    fastCooldown = 9000;
+    p2BodyHeight = 175;
+    p2BodyWidth = 175;
   } else {
-    p1Health = 20;
-    p1MaxHealth = 20;
+    p2Health = 20;
     powerCooldown = 10000;
-    p1BodyHeight = 200;
-    p1BodyWidth = 200;
+    fastCooldown = 10000;
+    p2BodyHeight = 200;
+    p2BodyWidth = 200;
   }
 }
+
+
+
 
 document.addEventListener("keydown", move);
 
@@ -286,7 +289,7 @@ function showWinner() {
   ctx.fillStyle = "white";
   ctx.font = "50px Arial";
   ctx.textAlign = "center";
-  ctx.fillText(`${winner} has won!`, canvas.width / 2, canvas.height / 2);
+  ctx.fillText((winner == "Player 2")? "you won!" : "you lose :(", canvas.width / 2, canvas.height / 2);
 }
 
 function gameLoop() {

@@ -36,19 +36,19 @@ function createNav() {
 
   if (loggedIn === "true") {
     nav.innerHTML = `
-      <a class= "nav-a" href="/index.html">בית</a>
+      <a class= "nav-a" href="./index.html">בית</a>
        <a class= "nav-a" href="./about.html">אודות</a>
       <a class = "game-btn nav-a" href="./game.html">🎮המשחק</a>
-      <a  class= "nav-a" href="./contactandhelp.html">צור קשר</a>
+      <a  class= "nav-a" href="./Contactandhelp.html">צור קשר</a>
       <a class= "nav-a" href="./profile.html">פרופיל שחקן</a>
       <a class= "nav-a" href="#" id="logout-link">התנתק</a>
     `;
   } else {
     nav.innerHTML = `
-      <a class= "nav-a" href="/index.html">בית</a>
+      <a class= "nav-a" href="./index.html">בית</a>
        <a class= "nav-a" href="./about.html">אודות</a>
       <a class= "nav-a" href="./game.html">🎮המשחק</a>
-      <a class= "nav-a" href="./contactandhelp.html">צור קשר</a>
+      <a class= "nav-a" href="./Contactandhelp.html">צור קשר</a>
         <a class= "nav-a" href="./Sign-Up_Page.html">הרשמה</a>
       <a class= "nav-a" href="./Log-in_Page.html">התחברות</a>
     `;

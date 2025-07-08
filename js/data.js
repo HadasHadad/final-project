@@ -1,6 +1,6 @@
 let players = JSON.parse(localStorage.getItem("players")) || [
-    { id: 0, name: "0", password: 0, reputation: 2 },
-    { id: 1, name: "0", password: 0, reputation: 6}
+    { id: 0, name: "0", password: 0, reputation: 10 },
+    { id: 1, name: "0", password: 0, reputation: 10}
 ];
 
 console.log(players)
@@ -51,7 +51,7 @@ function AddToPlayerBase(username, password1) {
   inputarea.value = "";
   inputarea1.value = "";
 
-  window.location.href = "/index.html";
+  window.location.href = "./index.html";
 }
 
 AddToPlayerBaseBtn.addEventListener("click", () => AddToPlayerBase(username, password1));
