@@ -20,6 +20,8 @@
 
   margin-left:358px;
   margin-top: -38px;
+  position: relative;
+    right: 80px;
 
 
 }
@@ -51,7 +53,7 @@
 .message {
   padding: 5px;
   border-bottom: 1px solid #ccc;
-
+      width: 209px;
 }
 
 #chat {
