@@ -54,36 +54,43 @@ if (currentPlayer && currentPlayer.reputation !== undefined) {
 
   if (rep >= 9) {
     p2Health = 100;
+    powerCooldown = 5000;
     fastCooldown = 5000;
     p2BodyHeight = 100;
     p2BodyWidth = 100;
   } else if (rep >= 8) {
     p2Health = 90;
+    powerCooldown = 6000;
     fastCooldown = 6000;
     p2BodyHeight = 110;
     p2BodyWidth = 110;
   } else if (rep >= 6) {
     p2Health = 80;
+    powerCooldown = 7000;
     fastCooldown = 7000;
     p2BodyHeight = 125;
     p2BodyWidth = 125;
   } else if (rep >= 4) {
     p2Health = 60;
+    powerCooldown = 8000;
     fastCooldown = 8000;
     p2BodyHeight = 150;
     p2BodyWidth = 150;
   } else if (rep >= 2) {
     p2Health = 40;
+    powerCooldown = 9000;
     fastCooldown = 9000;
     p2BodyHeight = 175;
     p2BodyWidth = 175;
   } else {
     p2Health = 20;
+    powerCooldown = 10000;
     fastCooldown = 10000;
     p2BodyHeight = 200;
     p2BodyWidth = 200;
   }
 }
+
 
 
 
