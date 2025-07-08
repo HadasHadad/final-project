@@ -11,6 +11,7 @@ sendBtn.addEventListener("click", () => {
 
     const messageDiv = document.createElement("div");
     messageDiv.className = "message";
+    messageDiv.style.backgroundColor= "aliceblue"
     messageDiv.innerHTML = `
         <strong>${player.name}:</strong> ${text}
         <button class="report-btn">דווח</button>
@@ -31,7 +32,7 @@ sendBtn.addEventListener("click", () => {
                 fullChat: fullChat
             }));
             
-            window.location.href = "report.html";
+            window.location.href = "./report.html";
         }
     });
 
