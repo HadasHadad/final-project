@@ -38,12 +38,12 @@ let rapidFireStart = 0;
 const rapidFireDuration = 1500;
 
 function updateGameStats(winnerIndex, loserIndex) {
-  let profileInfo = JSON.parse(localStorage.getItem("profileInfo") || "[]");
-
-  if (profileInfo[winnerIndex]) profileInfo[winnerIndex].gameWon++;
-  if (profileInfo[loserIndex]) profileInfo[loserIndex].gameLost++;
-
-  localStorage.setItem("profileInfo", JSON.stringify(profileInfo));
+  let profileInfo = JSON.parse(localStorage.getItem("CurrentlyloggedIn") || "[]");
+ 
+  if (winnerIndex===1) profileInfo.gameWon++;
+  if (loserIndex===1) profileInfo.gameLost++;
+ 
+  localStorage.setItem("CurrentlyloggedIn", JSON.stringify(profileInfo));
 }
 
 
@@ -86,38 +86,6 @@ if (currentPlayer && currentPlayer.reputation !== undefined) {
 }
 
 
-// Player 2 restriction 
-if (players[1].reputation >= 9) {
-  p2Health = 100;
-  fastCooldown = 5000;
-  p2BodyHeight = 100;
-  p2BodyWidth = 100;
-} else if (players[1].reputation >= 8) {
-  p2Health = 90;
-  fastCooldown = 6000;
-  p2BodyHeight = 110;
-  p2BodyWidth = 110;
-} else if (players[1].reputation >= 6) {
-  p2Health = 80;
-  fastCooldown = 7000;
-  p2BodyHeight = 125;
-  p2BodyWidth = 125;
-} else if (players[1].reputation >= 4) {
-  p2Health = 60;
-  fastCooldown = 8000;
-  p2BodyHeight = 150;
-  p2BodyWidth = 150;
-} else if (players[1].reputation >= 2) {
-  p2Health = 40;
-  fastCooldown = 9000;
-  p2BodyHeight = 175;
-  p2BodyWidth = 175;
-} else {
-  p2Health = 20;
-  fastCooldown = 10000;
-  p2BodyHeight = 200;
-  p2BodyWidth = 200;
-}
 
 document.addEventListener("keydown", move);
 
