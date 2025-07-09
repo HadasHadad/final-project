@@ -1,6 +1,6 @@
 .mail{
   position: relative;
-     right: 519px;
+     right: 592px;
     top: 69px;
   padding: 58px;
   background-color: rgb(252, 252, 252);
@@ -28,7 +28,7 @@ body{
 .contact{
   position: relative;
      top: 47px;
-    right: 715px;
+    right: 767px;
 }
 .help-div{
   display: flex;

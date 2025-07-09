@@ -12,6 +12,7 @@ justify-content: center;
  input{
       width: 100%;
       padding: 8px;
+       margin: 7px 0;
     }
 #max-width600pxreportpage{
       direction: rtl;   
